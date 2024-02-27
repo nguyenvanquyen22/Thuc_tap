@@ -1,10 +1,11 @@
-
+import Routes from './routes';
+import ThemeCustomization from './themes';
 
 function App() {
   return (
-    <div className="App">
-  
-    </div>
+    <ThemeCustomization>
+      <Routes />
+    </ThemeCustomization>
   );
 }
 
