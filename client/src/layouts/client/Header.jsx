@@ -2,11 +2,11 @@ import {
   AppBar,
   Box,
   Button,
-  Container,
   Toolbar,
   Link,
   IconButton,
   Typography,
+  Container,
 } from '@mui/material';
 import {
   ShoppingCartOutlined,
@@ -36,6 +36,7 @@ const Header = () => {
         boxShadow: 'none',
         borderBottom: '1px solid #ebebeb',
         marginBottom: '3rem',
+        mb: 0,
       }}
     >
       <Container maxWidth='xl'>
