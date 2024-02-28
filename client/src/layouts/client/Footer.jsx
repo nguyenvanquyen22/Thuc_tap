@@ -1,11 +1,11 @@
 import {
-  Container,
   Toolbar,
   Box,
   Typography,
   Link,
   IconButton,
   Grid,
+  Container,
 } from '@mui/material';
 import {
   TwitterOutlined,
@@ -180,12 +180,14 @@ const Copyright = () => {
 
 const Footer = () => {
   return (
-    <Container maxWidth='xl' sx={{ borderTop: '1px solid #ebebeb' }}>
-      <Toolbar sx={{ display: 'flex', flexDirection: 'column' }}>
-        <About />
-        <Copyright />
-      </Toolbar>
-    </Container>
+    <div style={{ borderTop: '1px solid #ebebeb', marginTop: '24px' }}>
+      <Container maxWidth='xl'>
+        <Toolbar sx={{ display: 'flex', flexDirection: 'column' }}>
+          <About />
+          <Copyright />
+        </Toolbar>
+      </Container>
+    </div>
   );
 };
 
