@@ -5,7 +5,6 @@ import {
   Toolbar,
   IconButton,
   Typography,
-  Container,
   Avatar,
   Tooltip,
   ClickAwayListener,
@@ -50,6 +49,7 @@ const Header = () => {
         boxShadow: 'none',
         borderBottom: '1px solid #ebebeb',
         marginBottom: '3rem',
+        mb: 0,
       }}
     >
       <Toolbar>
