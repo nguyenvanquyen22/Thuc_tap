@@ -21,7 +21,7 @@ const banners = [
   },
 ];
 
-const CarouselBanner = () => {
+const TopBanner = () => {
   return (
     <Carousel indicators={false} height={400} duration={1000} animation='slide'>
       {banners.map((item) => (
@@ -37,4 +37,4 @@ const CarouselBanner = () => {
   );
 };
 
-export default CarouselBanner;
+export default TopBanner;
