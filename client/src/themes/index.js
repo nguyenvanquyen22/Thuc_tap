@@ -41,7 +41,12 @@ export default function ThemeCustomization({ children }) {
       },
       palette: theme.palette,
       customShadows: themeCustomShadows,
-      typography: themeTypography
+      typography: {
+        ...themeTypography,
+        button: {
+          textTransform: 'none'
+        }
+      }
     }),
     [theme, themeTypography, themeCustomShadows]
   );
