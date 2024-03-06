@@ -117,15 +117,7 @@ const ProductView = () => {
                   </a>
                 </Grid>
                 <Grid item container flexDirection='column' xs={9}>
-                  <a
-                    style={{
-                      textDecorationLine: 'none',
-                      color: 'inherit',
-                    }}
-                    href='/'
-                  >
-                    {item.title}
-                  </a>
+                  <a href='/'>{item.title}</a>
                   <Typography mt={1} fontSize={13} color='#888'>
                     Mã SP: CSAS018
                   </Typography>
@@ -159,14 +151,12 @@ const ProductView = () => {
                 sx={{
                   a: {
                     display: 'flex',
-                    textDecorationLine: 'none',
                     alignItems: 'center',
                     justifyContent: 'center',
                     height: 32,
                     width: 32,
                     border: '1px solid #888',
                     borderRadius: '3px',
-                    color: 'inherit',
                     fontSize: 18,
                   },
                   input: {
