@@ -69,7 +69,9 @@ const CartSummary = () => {
         (Đã bao gồm VAT nếu có)
       </Typography>
 
-      <Button variant='contained'>Tiến hành đặt hàng</Button>
+      <Button variant='contained' href='/checkout'>
+        Tiến hành đặt hàng
+      </Button>
     </Stack>
   );
 };
