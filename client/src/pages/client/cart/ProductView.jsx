@@ -51,13 +51,13 @@ const cartProducts = [
 const ProductDetailRow = (props) => {
   return (
     <Grid container spacing={0} alignItems='center' pr={2}>
-      <Grid item xs={5} alignItems='center' display='flex'>
+      <Grid item xs={6} alignItems='center' display='flex'>
         {props.colProduct}
       </Grid>
       <Grid item xs={2} container>
         {props.colPrice}
       </Grid>
-      <Grid item xs={2.5}>
+      <Grid item xs={1.5}>
         {props.colQuantity}
       </Grid>
       <Grid item xs={2}>
