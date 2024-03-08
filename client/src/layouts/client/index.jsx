@@ -8,7 +8,7 @@ export default function ClientLayout() {
     <>
       <Header />
       <Container
-        maxWidth='lg'
+        maxWidth='xl'
         sx={{
           bgcolor: '#fff',
           minHeight: 'calc(100vh - 60px)',
