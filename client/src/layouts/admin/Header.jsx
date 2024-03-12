@@ -47,13 +47,20 @@ const Header = () => {
       color='inherit'
       sx={{
         boxShadow: 'none',
-        borderBottom: '1px solid #ebebeb',
+        borderBottom: '2px solid #ebebeb',
         marginBottom: '3rem',
         mb: 0,
       }}
     >
       <Toolbar>
-        <AdbIcon sx={{ display: 'flex', mr: 1 }} />
+        <AdbIcon
+          sx={{
+            display: 'flex',
+            mr: 1,
+            color: '#008060',
+            fontSize: 32,
+          }}
+        />
         <Typography
           variant='h3'
           component='a'
@@ -64,7 +71,7 @@ const Header = () => {
             fontFamily: 'monospace',
             fontWeight: 700,
             letterSpacing: '0.1rem',
-            color: 'inherit',
+            color: '#008060',
             textDecoration: 'none',
           }}
         >

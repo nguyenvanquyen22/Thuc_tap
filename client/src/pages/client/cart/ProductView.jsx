@@ -116,7 +116,13 @@ const ProductView = () => {
                     />
                   </a>
                 </Grid>
-                <Grid item container flexDirection='column' xs={9}>
+                <Grid
+                  item
+                  container
+                  flexDirection='column'
+                  justifyContent={'center'}
+                  xs={9}
+                >
                   <a href='/'>{item.title}</a>
                   <Typography mt={1} fontSize={13} color='#888'>
                     Mã SP: CSAS018
