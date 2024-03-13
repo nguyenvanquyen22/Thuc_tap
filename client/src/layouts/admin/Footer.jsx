@@ -2,7 +2,7 @@ import { Toolbar, Box, Typography } from '@mui/material';
 
 const Footer = () => {
   return (
-    <Box sx={{ borderTop: '1px solid #ebebeb' }}>
+    <Box sx={{ borderTop: '2px solid #ebebeb' }}>
       <Toolbar
         sx={{
           display: 'flex',

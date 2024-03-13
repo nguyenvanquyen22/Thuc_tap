@@ -8,91 +8,100 @@ import {
   Settings,
   ViewInAr,
 } from '@mui/icons-material';
-import {} from '@ant-design/icons';
 
 export const menu = [
   {
     id: 'quick-links',
-    title: 'Quick links',
+    title: 'Tiêu biểu',
     children: [
       {
         id: 'dashboard',
-        title: 'Dashboard',
+        title: 'Bảng điều khiển',
+        path: '/admin',
         icon: Home,
       },
       {
         id: 'new-product',
-        title: 'New Product',
+        title: 'Sản phẩm mới',
+        path: '/admin/products/new',
         icon: Inventory,
       },
       {
         id: 'new-coupon',
-        title: 'New Coupon',
+        title: 'Mã giảm giá mới',
+        path: '/admin/coupons/new',
         icon: Redeem,
       },
     ],
   },
   {
     id: 'catalog',
-    title: 'Catalog',
+    title: 'Mục lục',
     children: [
       {
         id: 'products',
-        title: 'Products',
+        title: 'Sản phẩm',
+        path: '/admin/products',
         icon: Inventory,
       },
       {
         id: 'categories',
-        title: 'Categories',
+        title: 'Loại sản phẩm',
+        path: '/admin/categories',
         icon: Link,
       },
       {
         id: 'collections',
-        title: 'Collections',
+        title: 'Bộ sưu tập',
+        path: '/admin/collections',
         icon: Sell,
       },
     ],
   },
   {
     id: 'sale',
-    title: 'Sale',
+    title: 'Bán hàng',
     children: [
       {
         id: 'orders',
-        title: 'Orders',
+        title: 'Đơn hàng',
+        path: '/admin/orders',
         icon: ViewInAr,
       },
     ],
   },
   {
     id: 'customer',
-    title: 'Customer',
+    title: 'Khách hàng',
     children: [
       {
         id: 'custormers',
-        title: 'Customers',
+        title: 'Khách hàng',
+        path: '/admin/customers',
         icon: Group,
       },
     ],
   },
   {
     id: 'promotion',
-    title: 'Promotion',
+    title: 'Khuyến mãi',
     children: [
       {
         id: 'coupons',
-        title: 'Coupons',
+        title: 'Mã giảm giá',
+        path: '/admin/coupons',
         icon: Redeem,
       },
     ],
   },
   {
     id: 'setting',
-    title: 'Setting',
+    title: 'Cấu hình',
     children: [
       {
         id: 'settings',
-        title: 'Settings',
+        title: 'Cài đặt trang',
+        path: '/admin/settings',
         icon: Settings,
       },
     ],

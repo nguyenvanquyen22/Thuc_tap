@@ -1,15 +1,15 @@
 import { Stack, Typography } from '@mui/material';
-import CategoryTable from './CategoryTable';
+import CollectionTable from './CollectionTable';
 
-const CategoryPage = () => {
+const CollectionPage = () => {
   return (
     <Stack>
       <Typography variant='h5' my={2} mx={1}>
         Loại sản phẩm
       </Typography>
-      <CategoryTable />
+      <CollectionTable />
     </Stack>
   );
 };
 
-export default CategoryPage;
+export default CollectionPage;

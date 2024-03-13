@@ -18,13 +18,18 @@ const Sidebar = () => {
   console.log(pathname);
 
   return (
-    <Box sx={{ width: 260, pt: 1.5, borderRight: '1px solid #e1e3e5' }}>
+    <Box sx={{ width: 260, pt: 1.5, borderRight: '2px solid #e1e3e5' }}>
       {menu.map((group) => (
         <React.Fragment key={group.id + '-flagment'}>
           <List
             key={group.id}
             subheader={
-              <Typography variant='caption' display='block' pl={1}>
+              <Typography
+                variant='caption'
+                fontWeight={600}
+                display='block'
+                pl={2}
+              >
                 {group.title}
               </Typography>
             }
@@ -34,23 +39,32 @@ const Sidebar = () => {
                 <ListItemButton
                   key={item.id}
                   sx={{
-                    mb: 0.5,
                     alignItems: 'flex-start',
                     py: 1,
-                    pl: 3,
+                    pl: 4.5,
                   }}
-                  selected={pathname.indexOf(`/${item.id}`) > -1}
+                  selected={pathname === item.path}
                   onClick={() => {
-                    navigate(`/admin/${item.id}`);
+                    navigate(item.path);
                   }}
                 >
                   <ListItemIcon sx={{ my: 'auto', minWidth: 16 }}>
-                    <item.icon stroke={1.5} size='1.1rem' />
+                    <item.icon
+                      sx={{
+                        fontSize: 20,
+                        color: pathname === item.path ? '#008060' : '#000',
+                      }}
+                    />
                   </ListItemIcon>
                   <ListItemText
-                    sx={{ ml: 1 }}
+                    sx={{ ml: 1.25 }}
                     primary={
-                      <Typography color='inherit'>{item.title}</Typography>
+                      <Typography
+                        color={pathname === item.path ? '#008060' : '#000'}
+                        fontWeight={600}
+                      >
+                        {item.title}
+                      </Typography>
                     }
                   />
                 </ListItemButton>

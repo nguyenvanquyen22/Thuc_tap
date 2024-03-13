@@ -2,6 +2,7 @@ import ClientLayout from '../layouts/client';
 import CartPage from '../pages/client/cart';
 import CheckoutPage from '../pages/client/checkout';
 import HomePage from '../pages/client/home';
+import OrderDetail from '../pages/client/order-detail';
 import ProductDetailPage from '../pages/client/product-detail';
 import ProductsPage from '../pages/client/products';
 import ProfilePage from '../pages/client/profile';
@@ -31,8 +32,12 @@ const ClientRoutes = {
       element: <ProductDetailPage />,
     },
     {
-      path: '/profile',
+      path: '/account',
       element: <ProfilePage />,
+    },
+    {
+      path: '/account/orders/:id',
+      element: <OrderDetail />,
     },
   ],
 };
