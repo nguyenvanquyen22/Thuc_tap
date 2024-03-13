@@ -14,7 +14,8 @@ export default function AdminLayout() {
           <Box
             sx={{
               minHeight: '100vh',
-              p: 2.5,
+              px: 3.5,
+              py: 3,
               borderRadius: 2,
             }}
           >
