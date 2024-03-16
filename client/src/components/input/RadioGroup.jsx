@@ -1,12 +1,17 @@
-import { FormControlLabel, InputLabel, Radio, RadioGroup } from '@mui/material';
+import {
+  FormControlLabel,
+  InputLabel,
+  Radio,
+  RadioGroup as RadioGroupMui,
+} from '@mui/material';
 
-const CheckboxGroup = (props) => {
+const RadioGroup = (props) => {
   return (
     <div>
       <InputLabel htmlFor={props.id} sx={{ color: 'inherit', fontSize: 16 }}>
         {props.title}:
       </InputLabel>
-      <RadioGroup
+      <RadioGroupMui
         defaultValue={props.defaultValue}
         onChange={(e) => {}}
         sx={{
@@ -21,9 +26,9 @@ const CheckboxGroup = (props) => {
             label={item.title}
           />
         ))}
-      </RadioGroup>
+      </RadioGroupMui>
     </div>
   );
 };
 
-export default CheckboxGroup;
+export default RadioGroup;

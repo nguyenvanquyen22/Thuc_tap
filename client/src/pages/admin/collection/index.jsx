@@ -5,7 +5,7 @@ const CollectionPage = () => {
   return (
     <Stack>
       <Typography variant='h5' my={2} mx={1}>
-        Loại sản phẩm
+        Bộ sưu tập sản phẩm
       </Typography>
       <CollectionTable />
     </Stack>

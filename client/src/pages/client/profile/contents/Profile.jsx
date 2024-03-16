@@ -1,6 +1,6 @@
 import { Button, InputLabel, Stack, Typography } from '@mui/material';
 import Input from '../../../../components/input/Input';
-import CheckboxGroup from '../../../../components/input/CheckboxGroup';
+import RadioGroup from '../../../../components/input/RadioGroup';
 import { DatePicker } from 'antd';
 import dayjs from 'dayjs';
 
@@ -90,7 +90,7 @@ const Profile = () => {
             );
           } else if (item.type === 'checkbox') {
             return (
-              <CheckboxGroup
+              <RadioGroup
                 {...item}
                 onChange={() => {}}
                 value={formValue[item.name]}
