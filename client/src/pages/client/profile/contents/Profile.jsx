@@ -69,12 +69,7 @@ const Profile = () => {
   ];
 
   return (
-    <Stack
-      p={1}
-      borderRadius={2}
-      pb={2}
-      boxShadow='0 1px 2px 0 rgba(60, 64, 67, 0.1), 0 2px 6px 2px rgba(60, 64, 67, 0.15)'
-    >
+    <Stack p={1}>
       <Typography variant='h5' p={2}>
         Thông tin tài khoản
       </Typography>

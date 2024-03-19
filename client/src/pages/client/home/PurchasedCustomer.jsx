@@ -6,8 +6,8 @@ import React from 'react';
 
 const PurchasedCustomer = () => {
   return (
-    <React.Fragment>
-      <Typography mt={'56px !important'} variant='h5'>
+    <Box bgcolor={'#fff'} p={2} borderRadius={1} mb={'24px !important'}>
+      <Typography variant='h5'>
         Hình ảnh khách hàng và các hoạt động của chúng tôi
       </Typography>
       <Grid container>
@@ -22,6 +22,7 @@ const PurchasedCustomer = () => {
             }}
           >
             <img
+              loading='lazy'
               src='https://hanoicomputercdn.com/media/lib/08-11-2023/khachang.png'
               alt=''
               width='100%'
@@ -68,6 +69,7 @@ const PurchasedCustomer = () => {
                   }}
                 >
                   <img
+                    loading='lazy'
                     style={{
                       width: '100%',
                       height: '100%',
@@ -83,7 +85,7 @@ const PurchasedCustomer = () => {
           </Box>
         </Grid>
       </Grid>
-    </React.Fragment>
+    </Box>
   );
 };
 

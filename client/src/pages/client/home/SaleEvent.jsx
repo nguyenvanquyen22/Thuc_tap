@@ -4,7 +4,12 @@ import 'react-multi-carousel/lib/styles.css';
 
 const SaleEvent = (props) => {
   return (
-    <Stack border='3px solid #ed1b24' borderTop='none'>
+    <Stack
+      border='3px solid #ed1b24'
+      bgcolor={'#fff'}
+      borderRadius={1}
+      borderTop='none'
+    >
       <Typography
         textAlign='center'
         variant='h4'
@@ -39,8 +44,9 @@ const SaleEvent = (props) => {
           customTransition='all 1000ms'
           transitionDuration={1000}
         >
-          {props.products.map((item) => (
+          {props.products.map((item, index) => (
             <Box
+              key={'carousel-img' + index}
               component='a'
               href={item.path}
               sx={{
@@ -71,6 +77,7 @@ const SaleEvent = (props) => {
                 }}
               >
                 <img
+                  loading='lazy'
                   src={item.image}
                   alt={item.title}
                   style={{ width: '100%', height: 'auto', display: 'block' }}
@@ -125,8 +132,9 @@ const SaleEvent = (props) => {
               </Typography>
             </Box>
           ))}
-          {props.products.map((item) => (
+          {props.products.map((item, index) => (
             <Box
+              key={'link-' + index}
               component='a'
               href={item.path}
               sx={{
@@ -157,6 +165,7 @@ const SaleEvent = (props) => {
                 }}
               >
                 <img
+                  loading='lazy'
                   src={item.image}
                   alt={item.title}
                   style={{ width: '100%', height: 'auto', display: 'block' }}

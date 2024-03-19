@@ -180,7 +180,12 @@ const Copyright = () => {
 
 const Footer = () => {
   return (
-    <div style={{ borderTop: '1px solid #ebebeb', marginTop: '24px' }}>
+    <div
+      style={{
+        borderTop: '1px solid #ebebeb',
+        backgroundColor: '#fff',
+      }}
+    >
       <Container maxWidth='xl'>
         <Toolbar sx={{ display: 'flex', flexDirection: 'column' }}>
           <About />

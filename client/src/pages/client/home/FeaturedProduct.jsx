@@ -1,16 +1,15 @@
 import { ArrowForward } from '@mui/icons-material';
 import { Grid, Typography, Box, Stack, Button, Link } from '@mui/material';
-import React from 'react';
 
 const FeaturedProduct = (props) => {
   return (
-    <React.Fragment>
+    <Box bgcolor={'#fff'} p={2} borderRadius={1}>
       <Stack
         display='flex'
         flexDirection='row'
         alignItems='center'
         justifyContent='space-between'
-        mt={'56px !important'}
+        mb={2}
       >
         <Typography p='5px 10px' bgcolor='#2b80dd' color='#fff' variant='h5'>
           {props.title}
@@ -26,15 +25,9 @@ const FeaturedProduct = (props) => {
           </Button>
         </Link>
       </Stack>
-      <Grid container spacing={8} ml={'-64px !important'}>
+      <Grid container>
         {props.products.map((item) => (
-          <Grid
-            key={item.id}
-            item
-            xs={3}
-            pt={'0 !important'}
-            textAlign='center'
-          >
+          <Grid key={item.id} item xs={3} p={1} textAlign='center'>
             <Box
               component='a'
               href={item.path}
@@ -64,6 +57,7 @@ const FeaturedProduct = (props) => {
                 }}
               >
                 <img
+                  loading='lazy'
                   src={item.image}
                   alt={item.title}
                   style={{ width: '100%', height: 'auto', display: 'block' }}
@@ -72,7 +66,13 @@ const FeaturedProduct = (props) => {
               <Typography className='underline' variant='h6'>
                 {item.title.toUpperCase()}
               </Typography>
-              <Typography mb={0.2} mt={0.2} variant='body2'>
+              <Typography
+                mb={0.2}
+                mt={0.2}
+                height={50}
+                overflow={'hidden'}
+                variant='body2'
+              >
                 {item.description}
               </Typography>
               <Typography color='error' variant='h5' fontWeight='bold'>
@@ -85,7 +85,7 @@ const FeaturedProduct = (props) => {
           </Grid>
         ))}
       </Grid>
-    </React.Fragment>
+    </Box>
   );
 };
 

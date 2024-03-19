@@ -12,7 +12,7 @@ const style = {
 
 const CartSummary = () => {
   return (
-    <Stack>
+    <Stack borderTop={'1px solid #ddd'} pt={2} px={'20%'}>
       <Grid container mb={2}>
         <Grid item xs={9} display='flex' alignItems='center'>
           <input
@@ -30,6 +30,8 @@ const CartSummary = () => {
               border: '1px solid #e1e1e1',
               borderRight: 'none',
               borderRadius: '3px 0 0 3px',
+              borderTopRightRadius: 0,
+              borderBottomRightRadius: 0,
             }}
           />
         </Grid>
@@ -38,7 +40,11 @@ const CartSummary = () => {
             variant='contained'
             size='small'
             fullWidth
-            sx={{ height: 36 }}
+            sx={{
+              height: 36,
+              borderTopLeftRadius: 0,
+              borderBottomLeftRadius: 0,
+            }}
           >
             Áp dụng
           </Button>

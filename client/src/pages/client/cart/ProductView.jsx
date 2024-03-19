@@ -88,7 +88,7 @@ const ProductView = () => {
         colQuantity={<Typography>Số lượng</Typography>}
         colAmount={<Typography>Thành tiền</Typography>}
       />
-      <Box mt={5}></Box>
+      <Box mt={2}></Box>
       {cartProducts.map((item) => {
         return (
           <ProductDetailRow
@@ -107,6 +107,7 @@ const ProductView = () => {
                     }}
                   >
                     <img
+                      loading='lazy'
                       src={item.image}
                       alt=''
                       style={{

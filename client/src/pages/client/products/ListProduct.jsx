@@ -136,7 +136,7 @@ const ListProduct = () => {
                   </Typography>
                 ))}
               </Stack>
-              <Typography variant='h5' ml={1}>
+              <Typography variant='h5' ml={1} color={'#ed1b24'}>
                 {item.price.toLocaleString('it-IT', {
                   style: 'currency',
                   currency: 'VND',
