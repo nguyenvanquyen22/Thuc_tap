@@ -2,6 +2,7 @@ import { ArrowForward } from '@mui/icons-material';
 import { Grid, Typography, Box, Stack, Button, Link } from '@mui/material';
 
 const FeaturedProduct = (props) => {
+  const { title, products } = props;
   return (
     <Box bgcolor={'#fff'} p={2} borderRadius={1}>
       <Stack
@@ -12,7 +13,7 @@ const FeaturedProduct = (props) => {
         mb={2}
       >
         <Typography p='5px 10px' bgcolor='#2b80dd' color='#fff' variant='h5'>
-          {props.title}
+          {title}
         </Typography>
         <Link href='/'>
           <Button
@@ -26,11 +27,11 @@ const FeaturedProduct = (props) => {
         </Link>
       </Stack>
       <Grid container>
-        {props.products.map((item) => (
+        {products.map((item) => (
           <Grid key={item.id} item xs={3} p={1} textAlign='center'>
             <Box
               component='a'
-              href={item.path}
+              href={`/products/${item.id}`}
               sx={{
                 paddingBottom: 2,
                 display: 'block',

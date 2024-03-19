@@ -12,7 +12,7 @@ const style = {
 
 const CartSummary = () => {
   return (
-    <Stack borderTop={'1px solid #ddd'} pt={2} px={'20%'}>
+    <Stack borderTop={'1px solid #ddd'} pt={2} px={'25%'}>
       <Grid container mb={2}>
         <Grid item xs={9} display='flex' alignItems='center'>
           <input
@@ -52,16 +52,29 @@ const CartSummary = () => {
       </Grid>
       <div style={style}>
         <Typography>Tạm tính </Typography>
-        <Typography fontWeight='bold'>199.000₫</Typography>
+        <Typography fontWeight={600} fontSize={16}>
+          {(1990000).toLocaleString('it-IT', {
+            style: 'currency',
+            currency: 'VND',
+          })}
+        </Typography>
       </div>
       <div style={style}>
         <Typography>Giảm giá</Typography>
-        <Typography fontWeight='bold'>0₫</Typography>
+        <Typography fontWeight={600} fontSize={16}>
+          {(0).toLocaleString('it-IT', {
+            style: 'currency',
+            currency: 'VND',
+          })}
+        </Typography>
       </div>
       <div style={style}>
         <Typography>Thành tiền</Typography>
-        <Typography fontWeight='bold' color='#ee2724'>
-          199.000₫
+        <Typography fontWeight={600} fontSize={20} color='#ee2724'>
+          {(1990000).toLocaleString('it-IT', {
+            style: 'currency',
+            currency: 'VND',
+          })}
         </Typography>
       </div>
       <Typography
@@ -75,7 +88,12 @@ const CartSummary = () => {
         (Đã bao gồm VAT nếu có)
       </Typography>
 
-      <Button variant='contained' href='/checkout'>
+      <Button
+        variant='contained'
+        size='large'
+        sx={{ fontWeight: 600 }}
+        href='/checkout'
+      >
         Tiến hành đặt hàng
       </Button>
     </Stack>

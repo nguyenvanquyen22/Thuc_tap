@@ -3,6 +3,8 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
 const SaleEvent = (props) => {
+  const { products } = props;
+
   return (
     <Stack
       border='3px solid #ed1b24'
@@ -44,11 +46,11 @@ const SaleEvent = (props) => {
           customTransition='all 1000ms'
           transitionDuration={1000}
         >
-          {props.products.map((item, index) => (
+          {products.map((item, index) => (
             <Box
               key={'carousel-img' + index}
               component='a'
-              href={item.path}
+              href={`/products/${item.id}`}
               sx={{
                 m: 0.5,
                 mr: 1,
@@ -132,7 +134,8 @@ const SaleEvent = (props) => {
               </Typography>
             </Box>
           ))}
-          {props.products.map((item, index) => (
+
+          {products.map((item, index) => (
             <Box
               key={'link-' + index}
               component='a'
@@ -222,7 +225,7 @@ const SaleEvent = (props) => {
           ))}
         </Carousel>
       </Box>
-      <Link href='/' textAlign='center' mb={2}>
+      <Link href={`/products`} textAlign='center' mb={2}>
         <Button variant='outlined'>Xem tất cả sản phẩm ...</Button>
       </Link>
     </Stack>

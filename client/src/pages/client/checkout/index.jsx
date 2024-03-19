@@ -31,7 +31,7 @@ const products = [
 
 const CheckoutPage = () => {
   return (
-    <Grid container bgcolor={'#fff'} borderRadius={1} p={3}>
+    <Grid container bgcolor={'#fff'} borderRadius={1} my={3} p={3}>
       <Grid item xs={8}>
         <DeliveryInformation products={products} />
       </Grid>

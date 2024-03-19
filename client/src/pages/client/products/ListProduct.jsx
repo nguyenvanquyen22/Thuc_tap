@@ -88,12 +88,7 @@ const ListProduct = () => {
               }
               borderRadius={5}
             >
-              <Box
-                component={'a'}
-                maxHeight={210}
-                display={'block'}
-                textAlign='center'
-              >
+              <Box maxHeight={210} display={'block'} textAlign='center'>
                 <img src={item.image} alt={item.title} />
               </Box>
               <div>
@@ -116,7 +111,7 @@ const ListProduct = () => {
                 overflow='hidden'
                 component={'a'}
                 m={1}
-                href='/'
+                href={`/products/${item.id}`}
               >
                 {item.title}
               </Typography>
@@ -169,6 +164,9 @@ const ListProduct = () => {
                       bgcolor: '#ed1b24',
                       opacity: 0.8,
                     },
+                  }}
+                  onClick={() => {
+                    // add to cart
                   }}
                 >
                   <ShoppingCartOutlined sx={{ color: '#fff', fontSize: 20 }} />

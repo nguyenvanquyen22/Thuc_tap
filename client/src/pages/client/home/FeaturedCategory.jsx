@@ -59,7 +59,7 @@ const FeaturedCategory = () => {
             {item.description}
           </Typography>
           <Link href={item.path}>
-            <Button variant='contained' color='error'>
+            <Button variant='contained' color='error' href={`/products`}>
               Xem sản phẩm
             </Button>
           </Link>

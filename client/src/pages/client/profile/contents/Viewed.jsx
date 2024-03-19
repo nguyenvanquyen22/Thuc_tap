@@ -61,7 +61,7 @@ const Viewed = () => {
           <Grid key={item.id} item xs={3}>
             <Stack p={2}>
               <Link
-                href='/'
+                href={`/products/${item.id}`}
                 sx={{
                   textDecorationLine: 'none !important',
                   color: '#000',

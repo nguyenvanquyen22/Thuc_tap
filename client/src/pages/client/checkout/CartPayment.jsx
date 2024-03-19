@@ -26,8 +26,12 @@ const CartPayment = (props) => {
             alignItems: 'center',
           }}
         >
-          <Typography variant='subtitle1'>Đơn hàng</Typography>
-          <Button variant='contained'>Sửa</Button>
+          <Typography fontWeight={600} fontSize={16}>
+            Đơn hàng
+          </Typography>
+          <Button variant='contained' href='/cart'>
+            Sửa
+          </Button>
         </div>
         <div
           style={{
@@ -36,7 +40,7 @@ const CartPayment = (props) => {
             margin: '8px 0',
           }}
         >
-          <Typography>1 sản phẩm</Typography>
+          <Typography>3 sản phẩm</Typography>
           <Button
             size='small'
             endIcon={<ArrowDropDown />}
@@ -67,7 +71,7 @@ const CartPayment = (props) => {
                 {item.quantity}x
               </Typography>
               <a
-                href='/'
+                href={`/products/${item.id}`}
                 style={{
                   fontSize: '12px',
                   width: 'calc(100% - 115px)',
@@ -85,6 +89,7 @@ const CartPayment = (props) => {
               </Typography>
             </div>
           ))}
+
         <div
           style={{
             display: 'flex',
@@ -94,8 +99,10 @@ const CartPayment = (props) => {
             marginTop: 8,
           }}
         >
-          <Typography variant='subtitle1'>Thành tiền</Typography>
-          <Typography variant='subtitle1' color='#ee2724'>
+          <Typography fontWeight={600} fontSize={16}>
+            Thành tiền
+          </Typography>
+          <Typography fontWeight={600} fontSize={18} color='#ee2724'>
             {props.products
               .reduce((pre, cur) => pre + cur.price * cur.quantity, 0)
               .toLocaleString('it-IT', {
@@ -104,6 +111,7 @@ const CartPayment = (props) => {
               })}
           </Typography>
         </div>
+
         <Typography textAlign='right' color='#777' fontStyle='italic'>
           (Đã bao gồm VAT nếu có)
         </Typography>

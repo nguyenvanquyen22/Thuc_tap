@@ -45,6 +45,8 @@ const deliveryInformation = [
 ];
 
 const DeliveryInformation = (props) => {
+  const { products } = props;
+  
   return (
     <Stack pr={2} spacing={1.5}>
       <Typography variant='h5'>Địa chỉ giao hàng</Typography>
@@ -80,21 +82,33 @@ const DeliveryInformation = (props) => {
           control={<Radio />}
           label='Giao hàng tiêu chuẩn'
         />
-        {props.products.map((item) => (
+        {products.map((item) => (
           <div key={item.id} style={{ display: 'flex', alignItems: 'center' }}>
-            <a href='/' style={{ width: 80, display: 'block' }}>
+            <a
+              href={`/products/${item.id}`}
+              style={{ width: 80, display: 'block' }}
+            >
               <img src={item.image} alt='' />
             </a>
             <div style={{ width: 'calc(100% - 240px)', marginLeft: 10 }}>
-              <a href='/'>{item.title}</a>
+              <a
+                href={`/products/${item.id}`}
+                style={{
+                  fontSize: 16,
+                  fontWeight: 600,
+                  display: 'block',
+                }}
+              >
+                {item.title}
+              </a>
               <div>SL: {item.quantity}</div>
             </div>
-            <div style={{ width: 150 }}>
+            <p style={{ width: 150, fontWeight: 600, fontSize: 16 }}>
               {(item.price * item.quantity).toLocaleString('it-IT', {
                 style: 'currency',
                 currency: 'VND',
               })}
-            </div>
+            </p>
           </div>
         ))}
       </Stack>
