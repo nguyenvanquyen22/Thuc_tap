@@ -1,4 +1,4 @@
-import { Grid, Typography, Link, Button } from '@mui/material';
+import { Grid, Typography, Button } from '@mui/material';
 
 const categories = [
   {
@@ -58,11 +58,9 @@ const FeaturedCategory = () => {
           <Typography mb={1} mt={1} height={120}>
             {item.description}
           </Typography>
-          <Link href={item.path}>
-            <Button variant='contained' color='error' href={`/products`}>
-              Xem sản phẩm
-            </Button>
-          </Link>
+          <Button variant='contained' color='error' href={`/products`}>
+            Xem sản phẩm
+          </Button>
         </Grid>
       ))}
     </Grid>

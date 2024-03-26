@@ -6,7 +6,7 @@ import React from 'react';
 
 const PurchasedCustomer = () => {
   return (
-    <Box bgcolor={'#fff'} p={2} borderRadius={1} mb={'24px !important'}>
+    <Box bgcolor={'#fff'} p={2} borderRadius={1}>
       <Typography variant='h5'>
         Hình ảnh khách hàng và các hoạt động của chúng tôi
       </Typography>

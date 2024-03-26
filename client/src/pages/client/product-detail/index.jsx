@@ -76,7 +76,7 @@ const ProductDetailPage = () => {
   ];
 
   return (
-    <Stack my={3} spacing={2.5}>
+    <Stack spacing={2.5}>
       <Grid container bgcolor={'#fff'} borderRadius={1}>
         <Grid item xs={5} p={3}>
           <ProductImage />
