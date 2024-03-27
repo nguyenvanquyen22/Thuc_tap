@@ -12,25 +12,13 @@ import {
 export const menu = [
   {
     id: 'quick-links',
-    title: 'Tiêu biểu',
+    title: '',
     children: [
       {
         id: 'dashboard',
         title: 'Bảng điều khiển',
         path: '/admin',
         icon: Home,
-      },
-      {
-        id: 'new-product',
-        title: 'Sản phẩm mới',
-        path: '/admin/products/new',
-        icon: Inventory,
-      },
-      {
-        id: 'new-coupon',
-        title: 'Mã giảm giá mới',
-        path: '/admin/coupons/new',
-        icon: Redeem,
       },
     ],
   },

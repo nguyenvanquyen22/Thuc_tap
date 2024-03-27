@@ -8,7 +8,11 @@ export default function AdminLayout() {
   return (
     <>
       <Header />
-      <Stack display='flex' flexDirection='row' sx={{ mt: '60px' }}>
+      <Stack
+        display='flex'
+        flexDirection='row'
+        sx={{ mt: '60px', bgcolor: '#fff' }}
+      >
         <Sidebar />
         <Stack width='calc(100% - 260px)'>
           <Box
