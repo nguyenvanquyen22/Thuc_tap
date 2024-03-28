@@ -38,11 +38,11 @@ const EditCategoryPage = () => {
   return (
     <Stack alignItems={'center'}>
       <Stack width={'calc(100% - 260px - 10%)'}>
-        <Grid container alignItems={'center'}>
+        <Grid container mb={2} alignItems={'center'}>
           <IconButton href='/admin/categories'>
             <ArrowBack />
           </IconButton>
-          <Typography variant='h5' my={2} mx={1}>
+          <Typography variant='h5' mx={1}>
             Tạo loại sản phẩm
           </Typography>
         </Grid>
