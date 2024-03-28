@@ -1,4 +1,5 @@
 import { Grid, Link, Stack, Typography } from '@mui/material';
+import { moneyFormatter } from '../../../../utils/moneyFormatter';
 
 const Viewed = () => {
   const viewedProducts = [
@@ -77,18 +78,12 @@ const Viewed = () => {
                 fontSize={13}
                 sx={{ textDecorationLine: 'line-through', color: '#6D6E72' }}
               >
-                {item.oldPrice.toLocaleString('it-IT', {
-                  style: 'currency',
-                  currency: 'VND',
-                })}
+                {moneyFormatter(item.oldPrice)}
               </Typography>
               <Typography
                 sx={{ color: '#E30019', fontSize: 16, fontWeight: 600 }}
               >
-                {item.price.toLocaleString('it-IT', {
-                  style: 'currency',
-                  currency: 'VND',
-                })}
+                {moneyFormatter(item.price)}
               </Typography>
             </Stack>
           </Grid>

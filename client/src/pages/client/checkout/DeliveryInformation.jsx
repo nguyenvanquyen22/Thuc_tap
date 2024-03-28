@@ -5,6 +5,7 @@ import {
   Stack,
   Typography,
 } from '@mui/material';
+import { moneyFormatter } from '../../../utils/moneyFormatter';
 
 const deliveryInformation = [
   {
@@ -46,7 +47,7 @@ const deliveryInformation = [
 
 const DeliveryInformation = (props) => {
   const { products } = props;
-  
+
   return (
     <Stack pr={2} spacing={1.5}>
       <Typography variant='h5'>Địa chỉ giao hàng</Typography>
@@ -104,10 +105,7 @@ const DeliveryInformation = (props) => {
               <div>SL: {item.quantity}</div>
             </div>
             <p style={{ width: 150, fontWeight: 600, fontSize: 16 }}>
-              {(item.price * item.quantity).toLocaleString('it-IT', {
-                style: 'currency',
-                currency: 'VND',
-              })}
+              {moneyFormatter(item.price * item.quantity)}
             </p>
           </div>
         ))}

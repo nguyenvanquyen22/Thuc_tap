@@ -15,7 +15,7 @@ export default function ClientLayout() {
       <div
         style={{
           ...style,
-          left: 70,
+          left: 'calc(50% - 775px)',
         }}
       >
         <a href='/pages/pc-gvn'>
@@ -31,7 +31,7 @@ export default function ClientLayout() {
       <div
         style={{
           ...style,
-          right: 70,
+          left: 'calc(50% + 625px)',
         }}
       >
         <a href='/products/laptop-asus-vivobook-14-oled-m1405ya-km047w'>

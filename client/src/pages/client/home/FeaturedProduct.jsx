@@ -1,5 +1,6 @@
 import { ArrowForward } from '@mui/icons-material';
 import { Grid, Typography, Box, Stack, Button, Link } from '@mui/material';
+import { moneyFormatter } from '../../../utils/moneyFormatter';
 
 const FeaturedProduct = (props) => {
   const { title, products } = props;
@@ -77,10 +78,7 @@ const FeaturedProduct = (props) => {
                 {item.description}
               </Typography>
               <Typography color='error' variant='h5' fontWeight='bold'>
-                {item.price.toLocaleString('it-IT', {
-                  style: 'currency',
-                  currency: 'VND',
-                })}
+                {moneyFormatter(item.price)}
               </Typography>
             </Box>
           </Grid>

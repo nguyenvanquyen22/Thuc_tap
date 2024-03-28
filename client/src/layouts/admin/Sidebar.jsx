@@ -18,7 +18,14 @@ const Sidebar = () => {
   console.log(pathname);
 
   return (
-    <Box sx={{ width: 260, pt: 1.5, borderRight: '2px solid #e1e3e5' }}>
+    <Box
+      sx={{
+        width: 260,
+        pt: 1.5,
+        borderRight: '1px solid #e1e3e5',
+        bgcolor: '#fff',
+      }}
+    >
       {menu.map((group) => (
         <React.Fragment key={group.id + '-flagment'}>
           <List
@@ -26,9 +33,10 @@ const Sidebar = () => {
             subheader={
               <Typography
                 variant='caption'
-                fontWeight={600}
+                fontWeight={500}
                 display='block'
                 pl={2}
+                color={'rgb(140, 140, 140)'}
               >
                 {group.title}
               </Typography>
@@ -61,7 +69,7 @@ const Sidebar = () => {
                     primary={
                       <Typography
                         color={pathname === item.path ? '#008060' : '#000'}
-                        fontWeight={600}
+                        fontWeight={500}
                       >
                         {item.title}
                       </Typography>

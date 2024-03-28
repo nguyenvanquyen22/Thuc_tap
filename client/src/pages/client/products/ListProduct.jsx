@@ -10,6 +10,7 @@ import {
 import { products } from './products';
 import { Check, ShoppingCartOutlined } from '@mui/icons-material';
 import { useState } from 'react';
+import { moneyFormatter } from '../../../utils/moneyFormatter';
 
 const ListProduct = () => {
   const buttonSort = [
@@ -132,10 +133,7 @@ const ListProduct = () => {
                 ))}
               </Stack>
               <Typography variant='h5' ml={1} color={'#ed1b24'}>
-                {item.price.toLocaleString('it-IT', {
-                  style: 'currency',
-                  currency: 'VND',
-                })}
+                {moneyFormatter(item.price)}
               </Typography>
               <Box
                 m={1}

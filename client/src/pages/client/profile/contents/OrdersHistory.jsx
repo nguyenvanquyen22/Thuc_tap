@@ -1,5 +1,6 @@
 import { Box, Button, Grid, Stack, Typography } from '@mui/material';
 import { useState } from 'react';
+import { moneyFormatter } from '../../../../utils/moneyFormatter';
 
 const OrdersHistory = () => {
   const historyStatus = [
@@ -138,39 +139,26 @@ const OrdersHistory = () => {
                   {item.title}
                 </Typography>
                 <Typography>
-                  Giảm giá:{' '}
-                  {item.discount.toLocaleString('it-IT', {
-                    style: 'currency',
-                    currency: 'VND',
-                  })}
+                  Giảm giá: {moneyFormatter(item.discount)}
                 </Typography>
               </Box>
             </Grid>
             <Box maxWidth={'23%'}>
               <Typography fontSize={16}>
-                {item.price.toLocaleString('it-IT', {
-                  style: 'currency',
-                  currency: 'VND',
-                })}
+                {moneyFormatter(item.price)}
               </Typography>
               <Typography
                 fontSize={14}
                 sx={{ textDecorationLine: 'line-through' }}
               >
-                {item.olPrice.toLocaleString('it-IT', {
-                  style: 'currency',
-                  currency: 'VND',
-                })}
+                {moneyFormatter(item.olPrice)}
               </Typography>
             </Box>
           </Box>
           <Typography fontSize={16} textAlign={'right'}>
             Tổng tiền:{' '}
             <span style={{ color: '#E30019', fontWeight: 600 }}>
-              {(item.price - item.discount).toLocaleString('it-IT', {
-                style: 'currency',
-                currency: 'VND',
-              })}
+              {moneyFormatter(item.price - item.discount)}
             </span>
           </Typography>
           <div style={{ textAlign: 'right', marginTop: 8 }}>

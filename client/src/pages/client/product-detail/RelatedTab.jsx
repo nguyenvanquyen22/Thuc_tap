@@ -1,4 +1,5 @@
 import { Box, Link, Stack, Typography } from '@mui/material';
+import { moneyFormatter } from '../../../utils/moneyFormatter';
 
 const RelatedTab = (props) => {
   const { title, data, type } = props;
@@ -40,10 +41,7 @@ const RelatedTab = (props) => {
                       textDecorationLine: 'line-through',
                     }}
                   >
-                    {item.oldPrice.toLocaleString('it-IT', {
-                      style: 'currency',
-                      currency: 'VND',
-                    })}
+                    {moneyFormatter(item.oldPrice)}
                   </Typography>
                   <Typography
                     color='#E30019'
@@ -52,10 +50,7 @@ const RelatedTab = (props) => {
                     display={'flex'}
                     alignItems={'center'}
                   >
-                    {item.price.toLocaleString('it-IT', {
-                      style: 'currency',
-                      currency: 'VND',
-                    })}
+                    {moneyFormatter(item.price)}
                     <span
                       style={{
                         fontSize: 12,

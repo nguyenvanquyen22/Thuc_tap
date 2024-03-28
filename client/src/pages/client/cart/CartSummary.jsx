@@ -1,4 +1,5 @@
 import { Grid, Stack, Button, Typography } from '@mui/material';
+import { moneyFormatter } from '../../../utils/moneyFormatter';
 
 const style = {
   display: 'flex',
@@ -53,28 +54,19 @@ const CartSummary = () => {
       <div style={style}>
         <Typography>Tạm tính </Typography>
         <Typography fontWeight={600} fontSize={16}>
-          {(1990000).toLocaleString('it-IT', {
-            style: 'currency',
-            currency: 'VND',
-          })}
+          {moneyFormatter(1990000)}
         </Typography>
       </div>
       <div style={style}>
         <Typography>Giảm giá</Typography>
         <Typography fontWeight={600} fontSize={16}>
-          {(0).toLocaleString('it-IT', {
-            style: 'currency',
-            currency: 'VND',
-          })}
+          {moneyFormatter(0)}
         </Typography>
       </div>
       <div style={style}>
         <Typography>Thành tiền</Typography>
         <Typography fontWeight={600} fontSize={20} color='#ee2724'>
-          {(1990000).toLocaleString('it-IT', {
-            style: 'currency',
-            currency: 'VND',
-          })}
+          {moneyFormatter(1990000)}
         </Typography>
       </div>
       <Typography

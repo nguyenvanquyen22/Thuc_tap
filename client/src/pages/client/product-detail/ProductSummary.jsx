@@ -1,5 +1,6 @@
 import { AddShoppingCart, Redeem } from '@mui/icons-material';
 import { Box, Button, Typography } from '@mui/material';
+import { moneyFormatter } from '../../../utils/moneyFormatter';
 
 const styleQuantityChange = {
   height: 36,
@@ -21,10 +22,7 @@ const ProductSummary = () => {
       </Typography>
       <div style={{ display: 'flex', alignItems: 'center', marginBottom: 32 }}>
         <Typography variant='h5' color={'#E30019'}>
-          {(18990000).toLocaleString('it-IT', {
-            style: 'currency',
-            currency: 'VND',
-          })}
+          {moneyFormatter(18990000)}
         </Typography>
         <Typography
           ml={2}
@@ -34,10 +32,7 @@ const ProductSummary = () => {
             fontSize: 18,
           }}
         >
-          {(21990000).toLocaleString('it-IT', {
-            style: 'currency',
-            currency: 'VND',
-          })}
+          {moneyFormatter(21990000)}
         </Typography>
         <Typography
           sx={{

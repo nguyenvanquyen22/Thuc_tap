@@ -8,6 +8,7 @@ import {
   Stack,
   Box,
 } from '@mui/material';
+import { moneyFormatter } from '../../../utils/moneyFormatter';
 
 const cartProducts = [
   {
@@ -151,20 +152,14 @@ const ProductView = () => {
             colPrice={
               <>
                 <Typography fontWeight={600} fontSize={16}>
-                  {item.price.toLocaleString('it-IT', {
-                    style: 'currency',
-                    currency: 'VND',
-                  })}
+                  {moneyFormatter(item.price)}
                 </Typography>
                 <Typography
                   fontSize={14}
                   color='#888'
                   sx={{ textDecorationLine: 'line-through' }}
                 >
-                  {item.oldPrice.toLocaleString('it-IT', {
-                    style: 'currency',
-                    currency: 'VND',
-                  })}
+                  {moneyFormatter(item.oldPrice)}
                 </Typography>
               </>
             }
@@ -198,10 +193,7 @@ const ProductView = () => {
             }
             colAmount={
               <Typography fontWeight={600} fontSize={18} color='#ee2724'>
-                {(item.quantity * item.price).toLocaleString('it-IT', {
-                  style: 'currency',
-                  currency: 'VND',
-                })}
+                {moneyFormatter(item.quantity * item.price)}
               </Typography>
             }
           />

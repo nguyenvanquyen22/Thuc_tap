@@ -24,18 +24,18 @@ const Typography = (fontFamily) => ({
   },
   h4: {
     fontWeight: 600,
-    fontSize: '1.5rem',
+    fontSize: '1.4rem',
     lineHeight: 1.4,
   },
   h5: {
     fontWeight: 600,
-    fontSize: '1.25rem',
+    fontSize: '1.2rem',
     lineHeight: 1.5,
   },
   h6: {
     fontWeight: 600,
     fontSize: '1rem',
-    lineHeight: 1.57,
+    lineHeight: 1.5,
   },
   caption: {
     fontWeight: 500,
