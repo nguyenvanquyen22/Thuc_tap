@@ -60,7 +60,8 @@ const Sidebar = () => {
                     <item.icon
                       sx={{
                         fontSize: 20,
-                        color: pathname === item.path ? '#008060' : '#000',
+                        fontWeight: 600,
+                        color: pathname === item.path ? '#008060' : '#5e5d72',
                       }}
                     />
                   </ListItemIcon>
@@ -68,8 +69,8 @@ const Sidebar = () => {
                     sx={{ ml: 1.25 }}
                     primary={
                       <Typography
-                        color={pathname === item.path ? '#008060' : '#000'}
-                        fontWeight={500}
+                        color={pathname === item.path ? '#008060' : '#5e5d72'}
+                        fontWeight={600}
                       >
                         {item.title}
                       </Typography>

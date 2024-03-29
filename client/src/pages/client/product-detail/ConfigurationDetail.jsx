@@ -56,7 +56,7 @@ const ConfigurationDetail = () => {
                 borderBottomRightRadius: cfDetails.length === index + 1 ? 4 : 0,
               }}
             >
-              <Typography>{item.title}</Typography>
+              <Typography fontWeight={600}>{item.title}</Typography>
               <Typography>{item.value}</Typography>
             </Box>
           ))}

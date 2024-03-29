@@ -120,7 +120,12 @@ const TechnicalDetail = () => {
             p={1}
             border={'1px solid #dfdfdf'}
           >
-            <Typography width={140} textAlign={'left'} variant='h6'>
+            <Typography
+              width={140}
+              textAlign={'left'}
+              fontSize={'1rem'}
+              fontWeight={600}
+            >
               {item.title}:
             </Typography>
             <Typography width={'calc(100% - 100px)'}>{item.value}</Typography>

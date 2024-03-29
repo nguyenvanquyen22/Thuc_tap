@@ -17,11 +17,11 @@ const styleQuantityChange = {
 const ProductSummary = () => {
   return (
     <>
-      <Typography variant='h5' mb={2}>
+      <Typography variant='h5' fontSize={'1.3rem'} color={'inherit'} mb={2}>
         Laptop gaming ASUS TUF Gaming A15 FA506NC HN011W
       </Typography>
-      <div style={{ display: 'flex', alignItems: 'center', marginBottom: 32 }}>
-        <Typography variant='h5' color={'#E30019'}>
+      <div style={{ display: 'flex', alignItems: 'end', marginBottom: 32 }}>
+        <Typography variant='h5' fontSize={'1.4rem'} color={'#E30019'}>
           {moneyFormatter(18990000)}
         </Typography>
         <Typography
@@ -29,7 +29,7 @@ const ProductSummary = () => {
           color='#6D6E72'
           sx={{
             textDecorationLine: 'line-through',
-            fontSize: 18,
+            fontSize: 16.5,
           }}
         >
           {moneyFormatter(21990000)}
@@ -41,6 +41,7 @@ const ProductSummary = () => {
             color: '#E30019',
             border: '1px solid #E30019',
             borderRadius: 1,
+            mb: '4px',
             ml: 2,
           }}
         >
