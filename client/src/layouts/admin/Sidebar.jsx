@@ -15,7 +15,6 @@ import { useLocation, useNavigate } from 'react-router-dom';
 const Sidebar = () => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
-  console.log(pathname);
 
   return (
     <Box
@@ -49,7 +48,7 @@ const Sidebar = () => {
                   sx={{
                     alignItems: 'flex-start',
                     py: 1,
-                    pl: 4.5,
+                    pl: 3.5,
                   }}
                   selected={pathname === item.path}
                   onClick={() => {
@@ -59,14 +58,14 @@ const Sidebar = () => {
                   <ListItemIcon sx={{ my: 'auto', minWidth: 16 }}>
                     <item.icon
                       sx={{
-                        fontSize: 20,
+                        fontSize: 24,
                         fontWeight: 600,
                         color: pathname === item.path ? '#008060' : '#5e5d72',
                       }}
                     />
                   </ListItemIcon>
                   <ListItemText
-                    sx={{ ml: 1.25 }}
+                    sx={{ ml: '1rem' }}
                     primary={
                       <Typography
                         color={pathname === item.path ? '#008060' : '#5e5d72'}

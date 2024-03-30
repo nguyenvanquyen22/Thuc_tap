@@ -79,21 +79,27 @@ const Profile = () => {
             return (
               <Input
                 {...item}
+                key={item.id + 'input'}
                 onChange={() => {}}
                 value={formValue[item.name]}
+                sx={{}}
               />
             );
           } else if (item.type === 'checkbox') {
             return (
               <RadioGroup
                 {...item}
+                key={item.id + 'radio'}
                 onChange={() => {}}
                 value={formValue[item.name]}
               />
             );
           } else if (item.type === 'date') {
             return (
-              <div style={{ display: 'flex', alignItems: 'center' }}>
+              <div
+                key={item.id}
+                style={{ display: 'flex', alignItems: 'center' }}
+              >
                 <InputLabel
                   htmlFor={item.name}
                   sx={{ mr: 2, fontSize: 16, color: 'inherit' }}

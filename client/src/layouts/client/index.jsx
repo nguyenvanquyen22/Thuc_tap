@@ -7,7 +7,7 @@ export default function ClientLayout() {
   const style = {
     width: 150,
     position: 'fixed',
-    top: 100,
+    top: 150,
     zIndex: 10010,
   };
   return (

@@ -1,120 +1,61 @@
-import PropTypes from 'prop-types';
-import { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import HomeIcon from '@mui/icons-material/Home';
+import { Link, Breadcrumbs as BreadcrumbsMui } from '@mui/material';
+import { menu } from '../layouts/admin/menu';
+import { useLocation } from 'react-router-dom';
 
-import MuiBreadcrumbs from '@mui/material/Breadcrumbs';
-import { Grid, Typography } from '@mui/material';
+const Breadcrumbs = (props) => {
+  const { pathname } = useLocation();
+  const splPaths = pathname.split('/');
 
-import MainCard from './MainCard';
-
-const Breadcrumbs = ({ navigation, title, ...others }) => {
-  const location = useLocation();
-  const [main, setMain] = useState();
-  const [item, setItem] = useState();
-
-  const getCollapse = (menu) => {
-    if (menu.children) {
-      menu.children.filter((collapse) => {
-        if (collapse.type && collapse.type === 'collapse') {
-          getCollapse(collapse);
-        } else if (collapse.type && collapse.type === 'item') {
-          if (location.pathname === collapse.url) {
-            setMain(menu);
-            setItem(collapse);
-          }
-        }
-        return false;
-      });
-    }
-  };
-
-  useEffect(() => {
-    navigation?.items?.map((menu) => {
-      if (menu.type && menu.type === 'group') {
-        getCollapse(menu);
-      }
-      return false;
-    });
-  });
-
-  if (location.pathname === '/breadcrumbs') {
-    location.pathname = '/dashboard/analytics';
-  }
-
-  let mainContent;
-  let itemContent;
-  let breadcrumbContent = <Typography />;
-  let itemTitle = '';
-
-  if (main && main.type === 'collapse') {
-    mainContent = (
-      <Typography
-        component={Link}
-        to={document.location.pathname}
-        variant='h6'
-        sx={{ textDecoration: 'none' }}
-        color='textSecondary'
-      >
-        {main.title}
-      </Typography>
-    );
-  }
-
-  if (item && item.type === 'item') {
-    itemTitle = item.title;
-    itemContent = (
-      <Typography variant='subtitle1' color='textPrimary'>
-        {itemTitle}
-      </Typography>
-    );
-
-    if (item.breadcrumbs !== false) {
-      breadcrumbContent = (
-        <MainCard
-          border={false}
-          sx={{ mb: 3, bgcolor: 'transparent' }}
-          {...others}
-          content={false}
-        >
-          <Grid
-            container
-            direction='column'
-            justifyContent='flex-start'
-            alignItems='flex-start'
-            spacing={1}
-          >
-            <Grid item>
-              <MuiBreadcrumbs aria-label='breadcrumb'>
-                <Typography
-                  component={Link}
-                  to='/'
-                  color='textSecondary'
-                  variant='h6'
-                  sx={{ textDecoration: 'none' }}
-                >
-                  Home
-                </Typography>
-                {mainContent}
-                {itemContent}
-              </MuiBreadcrumbs>
-            </Grid>
-            {title && (
-              <Grid item sx={{ mt: 2 }}>
-                <Typography variant='h5'>{item.title}</Typography>
-              </Grid>
-            )}
-          </Grid>
-        </MainCard>
+  if (splPaths[1] === 'admin') {
+    if (splPaths.length === 2) {
+      var navGroup = menu[0];
+      var navItem = menu[0].children[0];
+    } else {
+      navGroup = menu.find(
+        (v) =>
+          v.children.findIndex(
+            (e) => e.path === `/${splPaths[1]}/${splPaths[2]}`
+          ) !== -1
+      );
+      navItem = navGroup?.children.find(
+        (v) => v.path === `/${splPaths[1]}/${splPaths[2]}`
       );
     }
+  } else {
   }
 
-  return breadcrumbContent;
-};
+  return (
+    <BreadcrumbsMui
+      aria-label='breadcrumb'
+      sx={{
+        position: 'relative',
+        zIndex: 111111,
+        mb: 1,
+      }}
+    >
+      <Link
+        underline='hover'
+        sx={{ display: 'flex', alignItems: 'center' }}
+        color='inherit'
+        href={splPaths[1] !== 'admin' ? '/' : '/admin'}
+      >
+        <HomeIcon sx={{ mr: 1 }} fontSize='inherit' />
+        Home
+      </Link>
 
-Breadcrumbs.propTypes = {
-  navigation: PropTypes.object,
-  title: PropTypes.bool,
+      {splPaths[1] !== '' && (
+        <Link
+          underline='hover'
+          sx={{ display: 'flex', alignItems: 'center' }}
+          color='inherit'
+          href={navItem.path}
+        >
+          {navItem?.title}
+        </Link>
+      )}
+    </BreadcrumbsMui>
+  );
 };
 
 export default Breadcrumbs;

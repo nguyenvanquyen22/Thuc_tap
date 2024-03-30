@@ -7,7 +7,7 @@ import {
 
 const RadioGroup = (props) => {
   return (
-    <div>
+    <div key={props.id}>
       <InputLabel htmlFor={props.id} sx={{ color: 'inherit', fontSize: 16 }}>
         {props.title}:
       </InputLabel>
@@ -21,6 +21,7 @@ const RadioGroup = (props) => {
       >
         {props.list.map((item) => (
           <FormControlLabel
+            key={item.id + 'radio-group-item'}
             value={item.value}
             control={<Radio />}
             label={item.title}
