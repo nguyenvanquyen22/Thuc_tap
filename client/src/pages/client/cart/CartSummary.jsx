@@ -1,4 +1,5 @@
 import { Grid, Stack, Button, Typography } from '@mui/material';
+import { moneyFormatter } from '../../../utils/moneyFormatter';
 
 const style = {
   display: 'flex',
@@ -12,7 +13,7 @@ const style = {
 
 const CartSummary = () => {
   return (
-    <Stack>
+    <Stack borderTop={'1px solid #ddd'} pt={2} px={'25%'}>
       <Grid container mb={2}>
         <Grid item xs={9} display='flex' alignItems='center'>
           <input
@@ -30,6 +31,8 @@ const CartSummary = () => {
               border: '1px solid #e1e1e1',
               borderRight: 'none',
               borderRadius: '3px 0 0 3px',
+              borderTopRightRadius: 0,
+              borderBottomRightRadius: 0,
             }}
           />
         </Grid>
@@ -38,7 +41,11 @@ const CartSummary = () => {
             variant='contained'
             size='small'
             fullWidth
-            sx={{ height: 36 }}
+            sx={{
+              height: 36,
+              borderTopLeftRadius: 0,
+              borderBottomLeftRadius: 0,
+            }}
           >
             Áp dụng
           </Button>
@@ -46,16 +53,20 @@ const CartSummary = () => {
       </Grid>
       <div style={style}>
         <Typography>Tạm tính </Typography>
-        <Typography fontWeight='bold'>199.000₫</Typography>
+        <Typography fontWeight={600} fontSize={16}>
+          {moneyFormatter(1990000)}
+        </Typography>
       </div>
       <div style={style}>
         <Typography>Giảm giá</Typography>
-        <Typography fontWeight='bold'>0₫</Typography>
+        <Typography fontWeight={600} fontSize={16}>
+          {moneyFormatter(0)}
+        </Typography>
       </div>
       <div style={style}>
         <Typography>Thành tiền</Typography>
-        <Typography fontWeight='bold' color='#ee2724'>
-          199.000₫
+        <Typography fontWeight={600} fontSize={20} color='#ee2724'>
+          {moneyFormatter(1990000)}
         </Typography>
       </div>
       <Typography
@@ -69,7 +80,12 @@ const CartSummary = () => {
         (Đã bao gồm VAT nếu có)
       </Typography>
 
-      <Button variant='contained' href='/checkout'>
+      <Button
+        variant='contained'
+        size='large'
+        sx={{ fontWeight: 600 }}
+        href='/checkout'
+      >
         Tiến hành đặt hàng
       </Button>
     </Stack>

@@ -10,6 +10,7 @@ import {
 import { products } from './products';
 import { Check, ShoppingCartOutlined } from '@mui/icons-material';
 import { useState } from 'react';
+import { moneyFormatter } from '../../../utils/moneyFormatter';
 
 const ListProduct = () => {
   const buttonSort = [
@@ -88,12 +89,7 @@ const ListProduct = () => {
               }
               borderRadius={5}
             >
-              <Box
-                component={'a'}
-                maxHeight={210}
-                display={'block'}
-                textAlign='center'
-              >
+              <Box maxHeight={210} display={'block'} textAlign='center'>
                 <img src={item.image} alt={item.title} />
               </Box>
               <div>
@@ -116,7 +112,7 @@ const ListProduct = () => {
                 overflow='hidden'
                 component={'a'}
                 m={1}
-                href='/'
+                href={`/products/${item.id}`}
               >
                 {item.title}
               </Typography>
@@ -136,11 +132,8 @@ const ListProduct = () => {
                   </Typography>
                 ))}
               </Stack>
-              <Typography variant='h5' ml={1}>
-                {item.price.toLocaleString('it-IT', {
-                  style: 'currency',
-                  currency: 'VND',
-                })}
+              <Typography variant='h5' ml={1} color={'#ed1b24'}>
+                {moneyFormatter(item.price)}
               </Typography>
               <Box
                 m={1}
@@ -169,6 +162,9 @@ const ListProduct = () => {
                       bgcolor: '#ed1b24',
                       opacity: 0.8,
                     },
+                  }}
+                  onClick={() => {
+                    // add to cart
                   }}
                 >
                   <ShoppingCartOutlined sx={{ color: '#fff', fontSize: 20 }} />

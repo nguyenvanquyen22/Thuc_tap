@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 import Sidebar from './Sidebar';
+import Breadcrumbs from '../../components/Breadcrumbs';
 
 export default function AdminLayout() {
   return (
@@ -19,6 +20,7 @@ export default function AdminLayout() {
               borderRadius: 2,
             }}
           >
+            <Breadcrumbs />
             <Outlet />
           </Box>
           <Footer />

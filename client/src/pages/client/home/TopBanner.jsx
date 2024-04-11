@@ -23,9 +23,16 @@ const banners = [
 
 const TopBanner = () => {
   return (
-    <Carousel indicators={false} height={400} duration={1000} animation='slide'>
+    <Carousel
+      sx={{ bgcolor: '#fff', borderRadius: 1 }}
+      indicators={false}
+      height={400}
+      duration={1000}
+      animation='slide'
+    >
       {banners.map((item) => (
         <img
+          loading='lazy'
           height={'100%'}
           width={'100%'}
           key={item.id}

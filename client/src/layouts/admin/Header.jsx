@@ -19,7 +19,7 @@ import { LogoutOutlined } from '@ant-design/icons';
 const Profile = (props) => {
   return (
     <Stack p={2} mt={1} spacing={2}>
-      <Typography color='#008060'>{props.username}</Typography>
+      <Typography color='#008060'>Hi, {props.username}</Typography>
       <Button
         onClick={props.handleLogout}
         variant='contained'
@@ -47,7 +47,7 @@ const Header = () => {
       color='inherit'
       sx={{
         boxShadow: 'none',
-        borderBottom: '2px solid #ebebeb',
+        borderBottom: '1px solid #ebebeb',
         marginBottom: '3rem',
         mb: 0,
       }}

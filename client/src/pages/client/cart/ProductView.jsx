@@ -8,6 +8,7 @@ import {
   Stack,
   Box,
 } from '@mui/material';
+import { moneyFormatter } from '../../../utils/moneyFormatter';
 
 const cartProducts = [
   {
@@ -74,6 +75,18 @@ const ProductDetailRow = (props) => {
   );
 };
 
+const styleQuantityChange = {
+  height: 36,
+  width: 36,
+  fontSize: 14,
+  display: 'flex',
+  fontWeight: 600,
+  alignItems: 'center',
+  border: '1px solid #dfdfdf',
+  justifyContent: 'center',
+  textAlign: 'center',
+};
+
 const ProductView = () => {
   return (
     <Stack>
@@ -88,7 +101,7 @@ const ProductView = () => {
         colQuantity={<Typography>Số lượng</Typography>}
         colAmount={<Typography>Thành tiền</Typography>}
       />
-      <Box mt={5}></Box>
+      <Box mt={2}></Box>
       {cartProducts.map((item) => {
         return (
           <ProductDetailRow
@@ -100,13 +113,14 @@ const ProductView = () => {
                 </Grid>
                 <Grid item xs={2.4}>
                   <a
-                    href='http://'
+                    href={`/products/${item.id}`}
                     style={{
                       width: 90,
                       display: 'block',
                     }}
                   >
                     <img
+                      loading='lazy'
                       src={item.image}
                       alt=''
                       style={{
@@ -123,8 +137,13 @@ const ProductView = () => {
                   justifyContent={'center'}
                   xs={9}
                 >
-                  <a href='/'>{item.title}</a>
-                  <Typography mt={1} fontSize={13} color='#888'>
+                  <a
+                    href={`/products/${item.id}`}
+                    style={{ fontSize: 15, fontWeight: 600 }}
+                  >
+                    {item.title}
+                  </a>
+                  <Typography mt={1} fontSize={13}>
                     Mã SP: CSAS018
                   </Typography>
                 </Grid>
@@ -132,78 +151,49 @@ const ProductView = () => {
             }
             colPrice={
               <>
-                <Typography variant='subtitle1'>
-                  {item.price.toLocaleString('it-IT', {
-                    style: 'currency',
-                    currency: 'VND',
-                  })}
+                <Typography fontWeight={600} fontSize={16}>
+                  {moneyFormatter(item.price)}
                 </Typography>
                 <Typography
-                  fontSize={13}
+                  fontSize={14}
                   color='#888'
                   sx={{ textDecorationLine: 'line-through' }}
                 >
-                  {item.oldPrice.toLocaleString('it-IT', {
-                    style: 'currency',
-                    currency: 'VND',
-                  })}
+                  {moneyFormatter(item.oldPrice)}
                 </Typography>
               </>
             }
             colQuantity={
-              <Stack
-                flexDirection='row'
-                alignItems='center'
-                sx={{
-                  a: {
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    height: 32,
-                    width: 32,
-                    border: '1px solid #888',
-                    borderRadius: '3px',
-                    fontSize: 18,
-                  },
-                  input: {
-                    textAlign: 'center',
-                    height: 32,
-                    width: 40,
-                    borderRadius: 0,
-                    fontSize: 16,
-                    border: '1px solid #888',
-                  },
-                }}
-              >
-                <a
-                  href='/'
+              <Box display={'flex'} alignItems={'center'}>
+                <p
                   style={{
+                    ...styleQuantityChange,
                     borderRight: 'none',
-                    borderTopRightRadius: 0,
-                    borderBottomRightRadius: 0,
+                    cursor: 'pointer',
                   }}
                 >
                   -
-                </a>
-                <input value={item.quantity} />
-                <a
-                  href='/'
+                </p>
+                <input
+                  value='1'
+                  size='5'
+                  style={styleQuantityChange}
+                  onChange={() => {}}
+                />
+                <p
                   style={{
+                    ...styleQuantityChange,
                     borderLeft: 'none',
-                    borderTopLeftRadius: 0,
-                    borderBottomLeftRadius: 0,
+                    cursor: 'pointer',
                   }}
                 >
                   +
-                </a>
-              </Stack>
+                </p>
+              </Box>
             }
             colAmount={
-              <Typography variant='subtitle1' color='#ee2724'>
-                {(item.quantity * item.price).toLocaleString('it-IT', {
-                  style: 'currency',
-                  currency: 'VND',
-                })}
+              <Typography fontWeight={600} fontSize={18} color='#ee2724'>
+                {moneyFormatter(item.quantity * item.price)}
               </Typography>
             }
           />

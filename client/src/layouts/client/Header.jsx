@@ -1,7 +1,6 @@
 import {
   AppBar,
   Box,
-  Button,
   Toolbar,
   Link,
   IconButton,
@@ -13,19 +12,6 @@ import {
   Search,
   PersonOutlineOutlined,
 } from '@mui/icons-material';
-
-const menu = [
-  {
-    id: 'macbook',
-    title: 'Macbook',
-    path: '/',
-  },
-  {
-    id: 'window',
-    title: 'Window',
-    path: '/',
-  },
-];
 
 const Header = () => {
   return (
@@ -62,22 +48,7 @@ const Header = () => {
           </Typography>
 
           {/* Menu */}
-          <Box sx={{ flexGrow: 1, display: 'flex', justifyContent: 'center' }}>
-            {menu.map((item) => (
-              <Link key={item.id} underline='none' href={item.path}>
-                <Button
-                  sx={{
-                    my: 2,
-                    color: 'black',
-                    display: 'block',
-                    fontSize: '1rem',
-                  }}
-                >
-                  {item.title}
-                </Button>
-              </Link>
-            ))}
-          </Box>
+          <Box sx={{ flexGrow: 1 }}></Box>
 
           {/* Search */}
           <IconButton sx={{ mr: 1, p: 0 }}>

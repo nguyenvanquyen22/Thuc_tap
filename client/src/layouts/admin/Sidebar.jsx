@@ -15,10 +15,16 @@ import { useLocation, useNavigate } from 'react-router-dom';
 const Sidebar = () => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
-  console.log(pathname);
 
   return (
-    <Box sx={{ width: 260, pt: 1.5, borderRight: '2px solid #e1e3e5' }}>
+    <Box
+      sx={{
+        width: 260,
+        pt: 1.5,
+        borderRight: '1px solid #e1e3e5',
+        bgcolor: '#fff',
+      }}
+    >
       {menu.map((group) => (
         <React.Fragment key={group.id + '-flagment'}>
           <List
@@ -26,9 +32,10 @@ const Sidebar = () => {
             subheader={
               <Typography
                 variant='caption'
-                fontWeight={600}
+                fontWeight={500}
                 display='block'
                 pl={2}
+                color={'rgb(140, 140, 140)'}
               >
                 {group.title}
               </Typography>
@@ -41,7 +48,7 @@ const Sidebar = () => {
                   sx={{
                     alignItems: 'flex-start',
                     py: 1,
-                    pl: 4.5,
+                    pl: 3.5,
                   }}
                   selected={pathname === item.path}
                   onClick={() => {
@@ -51,16 +58,17 @@ const Sidebar = () => {
                   <ListItemIcon sx={{ my: 'auto', minWidth: 16 }}>
                     <item.icon
                       sx={{
-                        fontSize: 20,
-                        color: pathname === item.path ? '#008060' : '#000',
+                        fontSize: 24,
+                        fontWeight: 600,
+                        color: pathname === item.path ? '#008060' : '#5e5d72',
                       }}
                     />
                   </ListItemIcon>
                   <ListItemText
-                    sx={{ ml: 1.25 }}
+                    sx={{ ml: '1rem' }}
                     primary={
                       <Typography
-                        color={pathname === item.path ? '#008060' : '#000'}
+                        color={pathname === item.path ? '#008060' : '#5e5d72'}
                         fontWeight={600}
                       >
                         {item.title}

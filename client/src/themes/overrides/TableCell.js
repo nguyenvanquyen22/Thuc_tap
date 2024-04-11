@@ -12,9 +12,6 @@ export default function TableCell(theme) {
         },
         head: {
           fontWeight: 600,
-          border: '1px solid rgba(0, 0, 0, 0.1)',
-          borderLeft: 'none',
-          borderRight: 'none',
           backgroundColor: theme.palette.divider,
         },
       },

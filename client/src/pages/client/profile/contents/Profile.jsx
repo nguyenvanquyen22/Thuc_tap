@@ -1,6 +1,6 @@
 import { Button, InputLabel, Stack, Typography } from '@mui/material';
 import Input from '../../../../components/input/Input';
-import CheckboxGroup from '../../../../components/input/CheckboxGroup';
+import RadioGroup from '../../../../components/input/RadioGroup';
 import { DatePicker } from 'antd';
 import dayjs from 'dayjs';
 
@@ -69,12 +69,7 @@ const Profile = () => {
   ];
 
   return (
-    <Stack
-      p={1}
-      borderRadius={2}
-      pb={2}
-      boxShadow='0 1px 2px 0 rgba(60, 64, 67, 0.1), 0 2px 6px 2px rgba(60, 64, 67, 0.15)'
-    >
+    <Stack p={1}>
       <Typography variant='h5' p={2}>
         Thông tin tài khoản
       </Typography>
@@ -84,21 +79,27 @@ const Profile = () => {
             return (
               <Input
                 {...item}
+                key={item.id + 'input'}
                 onChange={() => {}}
                 value={formValue[item.name]}
+                sx={{}}
               />
             );
           } else if (item.type === 'checkbox') {
             return (
-              <CheckboxGroup
+              <RadioGroup
                 {...item}
+                key={item.id + 'radio'}
                 onChange={() => {}}
                 value={formValue[item.name]}
               />
             );
           } else if (item.type === 'date') {
             return (
-              <div style={{ display: 'flex', alignItems: 'center' }}>
+              <div
+                key={item.id}
+                style={{ display: 'flex', alignItems: 'center' }}
+              >
                 <InputLabel
                   htmlFor={item.name}
                   sx={{ mr: 2, fontSize: 16, color: 'inherit' }}

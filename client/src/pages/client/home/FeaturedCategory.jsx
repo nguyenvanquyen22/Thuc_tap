@@ -1,4 +1,4 @@
-import { Grid, Typography, Link, Button } from '@mui/material';
+import { Grid, Typography, Button } from '@mui/material';
 
 const categories = [
   {
@@ -32,9 +32,9 @@ const categories = [
 
 const FeaturedCategory = () => {
   return (
-    <Grid container spacing={8} ml={'-64px !important'}>
+    <Grid container bgcolor={'#fff'} borderRadius={1}>
       {categories.map((item) => (
-        <Grid key={item.id} item xs={4} pt={'0 !important'} textAlign='center'>
+        <Grid key={item.id} item xs={4} p={4} textAlign='center'>
           <div
             style={{
               width: 350,
@@ -48,6 +48,7 @@ const FeaturedCategory = () => {
             }}
           >
             <img
+              loading='lazy'
               src={item.image}
               alt={item.title}
               style={{ width: '100%', height: 'auto', display: 'block' }}
@@ -57,11 +58,9 @@ const FeaturedCategory = () => {
           <Typography mb={1} mt={1} height={120}>
             {item.description}
           </Typography>
-          <Link href={item.path}>
-            <Button variant='contained' color='error'>
-              Xem sản phẩm
-            </Button>
-          </Link>
+          <Button variant='contained' color='error' href={`/products`}>
+            Xem sản phẩm
+          </Button>
         </Grid>
       ))}
     </Grid>

@@ -102,7 +102,9 @@ const TableContent = (props) => {
               />
             </TableCell>
             {headCells.map((th) => (
-              <TableCell align='left'>{row[th.id]}</TableCell>
+              <TableCell key={th.id + '-body'} align='left'>
+                {row[th.id]}
+              </TableCell>
             ))}
           </TableRow>
         );
