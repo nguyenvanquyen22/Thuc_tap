@@ -2,6 +2,9 @@ package phuocvu.org.ecombackendspringboot.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+import phuocvu.org.ecombackendspringboot.model.Order.Order;
+
+import java.util.List;
 
 @Builder
 @Getter
@@ -27,4 +30,7 @@ public class Voucher {
     @Column(name = "status", nullable = false)
     private String status;
 
+//    // quan he toi Order
+//    @OneToMany(mappedBy = "voucher", cascade = CascadeType.ALL, orphanRemoval = true)
+//    private List<Order> orderList;
 }

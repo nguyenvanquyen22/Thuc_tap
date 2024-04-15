@@ -1,6 +1,8 @@
 package phuocvu.org.ecombackendspringboot.service.impl;
 
 import org.springframework.stereotype.Service;
+import phuocvu.org.ecombackendspringboot.model.Category;
+import phuocvu.org.ecombackendspringboot.repository.CategoryRepository;
 import phuocvu.org.ecombackendspringboot.repository.ProductRepository;
 import phuocvu.org.ecombackendspringboot.exception.ResourceNotFoundException;
 import phuocvu.org.ecombackendspringboot.model.Product;
@@ -15,10 +17,12 @@ import java.util.stream.Collectors;
 @Service
 public class ProductServiceImpl implements ProductService {
     private ProductRepository productRepository;
+    private CategoryRepository categoryRepository;
     private ModelMapper mapper;
 
-    public ProductServiceImpl(ProductRepository productRepository, ModelMapper mapper) {
+    public ProductServiceImpl(ProductRepository productRepository, CategoryRepository categoryRepository, ModelMapper mapper) {
         this.productRepository = productRepository;
+        this.categoryRepository = categoryRepository;
         this.mapper = mapper;
     }
 
@@ -67,6 +71,12 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public List<ProductDto> getProductsByCategory(Long categoryId) {
-        return null;
+        Category category = categoryRepository.findById(categoryId)
+                .orElseThrow(() -> new ResourceNotFoundException("category", "id", categoryId));
+        List<Product> products = productRepository.findByCategoryId(categoryId);
+
+        return products.stream()
+                .map(product -> mapper.map(product, ProductDto.class))
+                .collect(Collectors.toList());
     }
 }

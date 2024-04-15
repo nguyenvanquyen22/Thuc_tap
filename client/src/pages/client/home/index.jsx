@@ -45,7 +45,7 @@ const products = [
 
 const HomePage = () => {
   return (
-    <Stack spacing={4}>
+    <Stack spacing={2}>
       <TopBanner />
       <SaleEvent products={products} />
       <FeaturedCategory />

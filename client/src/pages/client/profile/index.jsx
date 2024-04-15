@@ -16,29 +16,11 @@ const ProfilePage = () => {
   };
 
   return (
-    <Grid container my={3} justifyContent={'space-between'}>
-      <Grid
-        item
-        xs={3}
-        p={1}
-        borderRadius={1}
-        bgcolor={'#fff'}
-        boxShadow={
-          '0 1px 2px 0 rgba(60, 64, 67, 0.1), 0 2px 6px 2px rgba(60, 64, 67, 0.15)'
-        }
-      >
+    <Grid container mt={3}>
+      <Grid item xs={3} p={1} pt={0}>
         <Sidebar tab={tab} onChangeTab={handleChangeTab} />
       </Grid>
-      <Grid
-        item
-        xs={8.8}
-        p={1}
-        bgcolor={'#fff'}
-        boxShadow={
-          '0 1px 2px 0 rgba(60, 64, 67, 0.1), 0 2px 6px 2px rgba(60, 64, 67, 0.15)'
-        }
-        borderRadius={1}
-      >
+      <Grid item xs={9} p={1} pt={0}>
         <Content
           tab={tab}
           showDialog={showDialog}

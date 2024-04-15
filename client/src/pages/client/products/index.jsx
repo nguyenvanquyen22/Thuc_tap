@@ -4,7 +4,7 @@ import ListProduct from './ListProduct';
 
 const ProductsPage = () => {
   return (
-    <Stack spacing={3} p={3} px={1.5} bgcolor={'#fff'}>
+    <Stack spacing={3} mt={3}>
       <div>
         <div
           style={{

@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -25,5 +27,8 @@ public class Collection {
 
     @Column(name = "type", nullable = false)
     private String type;
-    // one to manytu collection detail
+
+    // one to many toi collection item
+    @OneToMany(mappedBy = "collection", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<CollectionItem> collectionItemList;
 }

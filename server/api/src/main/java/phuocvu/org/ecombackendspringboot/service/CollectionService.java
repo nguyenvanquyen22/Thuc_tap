@@ -1,6 +1,6 @@
 package phuocvu.org.ecombackendspringboot.service;
 
-import phuocvu.org.ecombackendspringboot.payload.CollectionDto;
+import phuocvu.org.ecombackendspringboot.payload.collection.CollectionDto;
 
 import java.util.List;
 

@@ -2,15 +2,14 @@ package phuocvu.org.ecombackendspringboot.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import phuocvu.org.ecombackendspringboot.payload.CollectionDto;
+import phuocvu.org.ecombackendspringboot.payload.collection.CollectionDto;
 import phuocvu.org.ecombackendspringboot.service.CollectionService;
 
 import java.util.List;
 
 @RequestMapping("/api/collection")
-@Controller
+@RestController
 public class CollectionController {
     private CollectionService collectionService;
 

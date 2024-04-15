@@ -10,7 +10,6 @@ import lombok.*;
 @Builder
 public class ProductDto {
     // tien hanh validation sau
-    private Long id;
     private String type;
     private String title;
     private float discount;

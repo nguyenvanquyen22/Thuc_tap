@@ -47,7 +47,7 @@ const Header = () => {
       color='inherit'
       sx={{
         boxShadow: 'none',
-        borderBottom: '1px solid #ebebeb',
+        borderBottom: '2px solid #ebebeb',
         marginBottom: '3rem',
         mb: 0,
       }}

@@ -7,7 +7,6 @@ import phuocvu.org.ecombackendspringboot.payload.ProductDto;
 public class ProductMappper {
     public static Product mapToProduct(ProductDto productDto) {
         return Product.builder()
-                .id(productDto.getId())
                 .discount(productDto.getDiscount())
                 .type(productDto.getType())
                 .cpu(productDto.getCpu())
@@ -35,7 +34,6 @@ public class ProductMappper {
 
     public static ProductDto mapToProductDto(Product product) {
         return ProductDto.builder()
-                .id(product.getId())
                 .discount(product.getDiscount())
                 .type(product.getType())
                 .cpu(product.getCpu())

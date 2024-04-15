@@ -1,5 +1,4 @@
 import { Grid, Link, Stack, Typography } from '@mui/material';
-import { moneyFormatter } from '../../../../utils/moneyFormatter';
 
 const Viewed = () => {
   const viewedProducts = [
@@ -53,7 +52,12 @@ const Viewed = () => {
     },
   ];
   return (
-    <Stack p={1}>
+    <Stack
+      p={1}
+      borderRadius={2}
+      pb={2}
+      boxShadow='0 1px 2px 0 rgba(60, 64, 67, 0.1), 0 2px 6px 2px rgba(60, 64, 67, 0.15)'
+    >
       <Typography variant='h5' p={2}>
         Sản phẩm đã xem
       </Typography>
@@ -62,7 +66,7 @@ const Viewed = () => {
           <Grid key={item.id} item xs={3}>
             <Stack p={2}>
               <Link
-                href={`/products/${item.id}`}
+                href='/'
                 sx={{
                   textDecorationLine: 'none !important',
                   color: '#000',
@@ -78,12 +82,18 @@ const Viewed = () => {
                 fontSize={13}
                 sx={{ textDecorationLine: 'line-through', color: '#6D6E72' }}
               >
-                {moneyFormatter(item.oldPrice)}
+                {item.oldPrice.toLocaleString('it-IT', {
+                  style: 'currency',
+                  currency: 'VND',
+                })}
               </Typography>
               <Typography
                 sx={{ color: '#E30019', fontSize: 16, fontWeight: 600 }}
               >
-                {moneyFormatter(item.price)}
+                {item.price.toLocaleString('it-IT', {
+                  style: 'currency',
+                  currency: 'VND',
+                })}
               </Typography>
             </Stack>
           </Grid>

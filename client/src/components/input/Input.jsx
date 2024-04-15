@@ -1,38 +1,25 @@
 import { InputLabel, OutlinedInput } from '@mui/material';
 
 const Input = (props) => {
-  const {
-    id,
-    title,
-    disabled,
-    type,
-    value,
-    name,
-    onChange,
-    placeholder,
-    sx = {},
-  } = props;
   return (
-    <div key={id}>
-      {title !== '' && (
-        <InputLabel
-          htmlFor={id}
-          sx={{ mb: 0.5, fontSize: 16, color: 'inherit' }}
-        >
-          {title}:
-        </InputLabel>
-      )}
+    <div>
+      <InputLabel
+        htmlFor={props.id}
+        sx={{ mb: 0.5, fontSize: 16, color: 'inherit' }}
+      >
+        {props.title}:
+      </InputLabel>
 
       <OutlinedInput
-        id={id}
-        disabled={disabled}
-        type={type}
-        value={value ?? ''}
-        name={name}
-        onChange={onChange}
-        placeholder={placeholder}
+        id={props.id}
+        disabled={props.disabled}
+        type={props.type}
+        value={props.value ?? ''}
+        name={props.name}
+        onChange={props.onChange}
+        placeholder={props.placeholder}
         fullWidth
-        sx={{ fontSize: 16, ...sx }}
+        sx={{ fontSize: 16 }}
       />
     </div>
   );

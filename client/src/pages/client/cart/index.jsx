@@ -1,15 +1,21 @@
+import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import ProductView from './ProductView';
 import CartSummary from './CartSummary';
-import { Stack } from '@mui/material';
 
 const CartPage = () => {
   return (
-    <Stack bgcolor={'#fff'} p={3} spacing={3} borderRadius={1}>
-      <Typography variant='h5'>Giỏ hàng</Typography>
-      <ProductView />
-      <CartSummary />
-    </Stack>
+    <Grid container mt={3} spacing={0}>
+      <Grid item xs={12} mb={2}>
+        <Typography variant='h5'>Giỏ hàng</Typography>
+      </Grid>
+      <Grid item xs={9}>
+        <ProductView />
+      </Grid>
+      <Grid item xs={3}>
+        <CartSummary />
+      </Grid>
+    </Grid>
   );
 };
 

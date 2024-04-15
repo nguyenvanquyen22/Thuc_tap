@@ -5,6 +5,10 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import phuocvu.org.ecombackendspringboot.model.Order.Order;
+import phuocvu.org.ecombackendspringboot.model.Order.OrderItem;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -22,4 +26,9 @@ public class Payment {
 
     @Column(name = "type", nullable = false)
     private String type;
+
+//    // quan he toi Order
+//    @OneToMany(mappedBy = "payment", cascade = CascadeType.ALL, orphanRemoval = true)
+//    private List<Order> orderList;
+
 }

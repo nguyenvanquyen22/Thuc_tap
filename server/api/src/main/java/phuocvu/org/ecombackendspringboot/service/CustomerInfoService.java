@@ -1,6 +1,6 @@
 package phuocvu.org.ecombackendspringboot.service;
 
-import phuocvu.org.ecombackendspringboot.payload.CustomerInfoDto;
+import phuocvu.org.ecombackendspringboot.payload.user.CustomerInfoDto;
 
 import java.util.List;
 

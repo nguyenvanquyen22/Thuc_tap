@@ -2,7 +2,7 @@ package phuocvu.org.ecombackendspringboot.controller;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import phuocvu.org.ecombackendspringboot.payload.UserDto;
+import phuocvu.org.ecombackendspringboot.payload.user.UserDto;
 import phuocvu.org.ecombackendspringboot.service.UserService;
 
 

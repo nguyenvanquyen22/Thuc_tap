@@ -1,6 +1,5 @@
 import { Box, Button, Grid, Stack, Typography } from '@mui/material';
 import { useState } from 'react';
-import { moneyFormatter } from '../../../../utils/moneyFormatter';
 
 const OrdersHistory = () => {
   const historyStatus = [
@@ -59,7 +58,12 @@ const OrdersHistory = () => {
   ];
 
   return (
-    <Stack p={1}>
+    <Stack
+      p={1}
+      borderRadius={2}
+      pb={2}
+      boxShadow='0 1px 2px 0 rgba(60, 64, 67, 0.1), 0 2px 6px 2px rgba(60, 64, 67, 0.15)'
+    >
       <Typography variant='h5' p={2}>
         Quản lý đơn hàng
       </Typography>
@@ -139,26 +143,39 @@ const OrdersHistory = () => {
                   {item.title}
                 </Typography>
                 <Typography>
-                  Giảm giá: {moneyFormatter(item.discount)}
+                  Giảm giá:{' '}
+                  {item.discount.toLocaleString('it-IT', {
+                    style: 'currency',
+                    currency: 'VND',
+                  })}
                 </Typography>
               </Box>
             </Grid>
             <Box maxWidth={'23%'}>
               <Typography fontSize={16}>
-                {moneyFormatter(item.price)}
+                {item.price.toLocaleString('it-IT', {
+                  style: 'currency',
+                  currency: 'VND',
+                })}
               </Typography>
               <Typography
                 fontSize={14}
                 sx={{ textDecorationLine: 'line-through' }}
               >
-                {moneyFormatter(item.olPrice)}
+                {item.olPrice.toLocaleString('it-IT', {
+                  style: 'currency',
+                  currency: 'VND',
+                })}
               </Typography>
             </Box>
           </Box>
           <Typography fontSize={16} textAlign={'right'}>
             Tổng tiền:{' '}
             <span style={{ color: '#E30019', fontWeight: 600 }}>
-              {moneyFormatter(item.price - item.discount)}
+              {(item.price - item.discount).toLocaleString('it-IT', {
+                style: 'currency',
+                currency: 'VND',
+              })}
             </span>
           </Typography>
           <div style={{ textAlign: 'right', marginTop: 8 }}>

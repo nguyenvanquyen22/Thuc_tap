@@ -4,7 +4,7 @@ import CategoryTable from './CategoryTable';
 const CategoryPage = () => {
   return (
     <Stack>
-      <Typography variant='h5' mb={2} mx={1}>
+      <Typography variant='h5' my={2} mx={1}>
         Loại sản phẩm
       </Typography>
       <CategoryTable />

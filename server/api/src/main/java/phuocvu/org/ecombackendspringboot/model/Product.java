@@ -5,6 +5,11 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import phuocvu.org.ecombackendspringboot.model.Collection.CollectionItem;
+import phuocvu.org.ecombackendspringboot.model.Order.OrderItem;
+import phuocvu.org.ecombackendspringboot.model.cart.CartItem;
+
+import java.util.List;
 
 @Entity
 @Builder
@@ -82,5 +87,21 @@ public class Product {
 
     @Column(name = "size", nullable = false)
     private String size;
-    // many to onecategory
+
+    // quan he toi category
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id")
+    private Category category;
+
+    // quan he toi collectiondetail
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<CollectionItem> collectionItems;
+
+    // quan he toi cartItem
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<CartItem> cartItemList;
+
+    // quan he toi order item
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<OrderItem> orderItemList;
 }

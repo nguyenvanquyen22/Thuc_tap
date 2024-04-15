@@ -2,10 +2,9 @@ package phuocvu.org.ecombackendspringboot.model.cart;
 
 import jakarta.persistence.*;
 import lombok.*;
+import phuocvu.org.ecombackendspringboot.model.user.User;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Getter
 @Setter
@@ -24,11 +23,12 @@ public class Cart {
 
     @Column(name = "update_at", nullable = false)
     private String update_at;
-    // total
-    // customerInfo
 
-    // thể hiện mối quan hệ 1-n cart - cartDetail, có tác động tới bảng trong Database
-    // Tai sao lai su dung set chu khong phai list ?
-    @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, orphanRemoval = true) 
-    private List<CartDetail> CartDetails;
+    // quan he toi cartItem
+    @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<CartItem> cartItemList;
+
+    // quan he toi User
+    @OneToOne(mappedBy = "cart")
+    private User user;
 }

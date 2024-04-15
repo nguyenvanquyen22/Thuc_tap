@@ -2,8 +2,8 @@ import { Stack, Table, TableContainer, TablePagination } from '@mui/material';
 import TableHeader from './TableHeader';
 import TableContent from './TableContent';
 import { useState } from 'react';
-import ToolbarAction from './ToolbarAction';
-import Filter from './Filter';
+import PropTypes from 'prop-types';
+import TableToolbar from './TableToolbar';
 
 const DataTable = (props) => {
   const { rows, headCells } = props;
@@ -39,10 +39,9 @@ const DataTable = (props) => {
   };
 
   return (
-    <Stack spacing={2}>
-      <ToolbarAction selected={selected} onHandleDelete={() => {}} />
-      <Filter />
-      <TableContainer sx={{ bgcolor: '#fff', border: '1px solid #e5e7eb' }}>
+    <Stack border={'1px solid rgba(0, 0, 0, 0.1)'} borderRadius={2}>
+      <TableToolbar selected={selected} onHandleDelete={() => {}} />
+      <TableContainer>
         <Table size={'small'}>
           <TableHeader
             onSelectAllClick={handleSelectAllClick}
@@ -64,25 +63,24 @@ const DataTable = (props) => {
             headCells={headCells}
           />
         </Table>
-        <TablePagination
-          rowsPerPageOptions={[10, 25, 50, 100]}
-          labelRowsPerPage='Số hàng'
-          labelDisplayedRows={(v) => {
-            return `Hiển thị ${v.from} - ${v.to} trong ${v.count} kết quả`;
-          }}
-          sx={{
-            bgcolor: '#fff',
-          }}
-          component='div'
-          count={rows.length}
-          rowsPerPage={rowsPerPage}
-          page={page}
-          onPageChange={handleChangePage}
-          onRowsPerPageChange={handleChangeRowsPerPage}
-        />
       </TableContainer>
+
+      <TablePagination
+        rowsPerPageOptions={[10, 25, 50, 100]}
+        component='div'
+        count={rows.length}
+        rowsPerPage={rowsPerPage}
+        page={page}
+        onPageChange={handleChangePage}
+        onRowsPerPageChange={handleChangeRowsPerPage}
+      />
     </Stack>
   );
+};
+
+DataTable.propType = {
+  rows: PropTypes.array.isRequired,
+  headCells: PropTypes.array.isRequired,
 };
 
 export default DataTable;

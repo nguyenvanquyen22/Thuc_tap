@@ -10,7 +10,6 @@ import lombok.*;
 @Builder
 
 public class VoucherDto {
-    private Long id;
     private String type;
     private float discount;
     private int quantity;
