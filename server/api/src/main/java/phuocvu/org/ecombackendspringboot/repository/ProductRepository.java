@@ -1,7 +1,9 @@
 package phuocvu.org.ecombackendspringboot.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import phuocvu.org.ecombackendspringboot.model.Product;
+import phuocvu.org.ecombackendspringboot.entity.Product;
+
+import java.util.List;
 
 import java.util.List;
 

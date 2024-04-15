@@ -2,10 +2,7 @@ package phuocvu.org.ecombackendspringboot.service.impl.order;
 
 import org.springframework.stereotype.Service;
 import phuocvu.org.ecombackendspringboot.exception.ResourceNotFoundException;
-import phuocvu.org.ecombackendspringboot.model.Order.Order;
-import phuocvu.org.ecombackendspringboot.model.Order.OrderItem;
-import phuocvu.org.ecombackendspringboot.model.Product;
-import phuocvu.org.ecombackendspringboot.model.cart.CartItem;
+import phuocvu.org.ecombackendspringboot.entity.OrderItem;
 import phuocvu.org.ecombackendspringboot.repository.order.OrderItemRepository;
 import phuocvu.org.ecombackendspringboot.service.OrderItemService;
 
@@ -21,21 +18,14 @@ public class OrderItemServiceImpl implements OrderItemService {
 
     @Override
     public List<OrderItem> getAllOrderItem() {
-        List<OrderItem > orderItemList = orderItemRepository.findAll();
-        return orderItemList;
+        return orderItemRepository.findAll();
     }
 
-    @Override
-    public List<OrderItem> getAllOrderItemByOrder(Long orderId) {
-        List<OrderItem > orderItemList = orderItemRepository.findOrderItemByOrder(orderId);
-        return orderItemList;
-    }
 
     @Override
     public OrderItem getOrderItemById(Long orderItemId) {
-        OrderItem orderItem = orderItemRepository.findById(orderItemId)
+        return orderItemRepository.findById(orderItemId)
                 .orElseThrow(() -> new ResourceNotFoundException("orderItem", "orderItemId", orderItemId));
-        return orderItem;
     }
 
     @Override

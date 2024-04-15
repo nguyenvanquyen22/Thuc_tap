@@ -75,7 +75,7 @@ const Header = () => {
             textDecoration: 'none',
           }}
         >
-          ecommerce
+          Dev4Fun
         </Typography>
 
         <Box sx={{ flexGrow: 1 }}></Box>

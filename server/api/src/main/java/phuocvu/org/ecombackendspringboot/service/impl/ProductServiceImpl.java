@@ -1,11 +1,11 @@
 package phuocvu.org.ecombackendspringboot.service.impl;
 
 import org.springframework.stereotype.Service;
-import phuocvu.org.ecombackendspringboot.model.Category;
+import phuocvu.org.ecombackendspringboot.entity.Category;
 import phuocvu.org.ecombackendspringboot.repository.CategoryRepository;
 import phuocvu.org.ecombackendspringboot.repository.ProductRepository;
 import phuocvu.org.ecombackendspringboot.exception.ResourceNotFoundException;
-import phuocvu.org.ecombackendspringboot.model.Product;
+import phuocvu.org.ecombackendspringboot.entity.Product;
 import phuocvu.org.ecombackendspringboot.payload.ProductDto;
 import phuocvu.org.ecombackendspringboot.service.ProductService;
 import org.modelmapper.ModelMapper;
@@ -16,9 +16,9 @@ import java.util.stream.Collectors;
 
 @Service
 public class ProductServiceImpl implements ProductService {
-    private ProductRepository productRepository;
-    private CategoryRepository categoryRepository;
-    private ModelMapper mapper;
+    private final ProductRepository productRepository;
+    private final CategoryRepository categoryRepository;
+    private final ModelMapper mapper;
 
     public ProductServiceImpl(ProductRepository productRepository, CategoryRepository categoryRepository, ModelMapper mapper) {
         this.productRepository = productRepository;
@@ -27,7 +27,6 @@ public class ProductServiceImpl implements ProductService {
     }
 
     // create a Product
-    // product <- productDTO --> save product -> return DTO
     @Override
     public ProductDto addProduct(ProductDto productDto) {
         Product product = mapper.map(productDto, Product.class);
@@ -45,16 +44,14 @@ public class ProductServiceImpl implements ProductService {
     // Find by id: find -> existence check -> response
     @Override
     public ProductDto getProductById(Long productId) {
-        Product product = productRepository.findById(productId)
-                .orElseThrow(() -> new ResourceNotFoundException("product", "id", productId));
+        Product product = productRepository.findById(productId).orElseThrow(() -> new ResourceNotFoundException("product", "id", productId));
         return mapper.map(product, ProductDto.class);
     }
 
     // update a exist product
     @Override
     public ProductDto updateProduct(ProductDto productDto, long productId) {
-        Product existProduct = productRepository.findById(productId)
-                .orElseThrow(() -> new ResourceNotFoundException("product", "id", productId));
+        Product existProduct = productRepository.findById(productId).orElseThrow(() -> new ResourceNotFoundException("product", "id", productId));
         mapper.map(productDto, existProduct);
         Product updateProduct = productRepository.save(existProduct);
         return mapper.map(updateProduct, ProductDto.class);
@@ -64,19 +61,14 @@ public class ProductServiceImpl implements ProductService {
     // search -> delete
     @Override
     public void deleteProductById(long productId) {
-        Product product = productRepository.findById(productId)
-                .orElseThrow(() -> new ResourceNotFoundException("product", "id", productId));
+        Product product = productRepository.findById(productId).orElseThrow(() -> new ResourceNotFoundException("product", "id", productId));
         productRepository.delete(product);
     }
 
     @Override
     public List<ProductDto> getProductsByCategory(Long categoryId) {
-        Category category = categoryRepository.findById(categoryId)
-                .orElseThrow(() -> new ResourceNotFoundException("category", "id", categoryId));
+        Category category = categoryRepository.findById(categoryId).orElseThrow(() -> new ResourceNotFoundException("category", "id", categoryId));
         List<Product> products = productRepository.findByCategoryId(categoryId);
-
-        return products.stream()
-                .map(product -> mapper.map(product, ProductDto.class))
-                .collect(Collectors.toList());
+        return products.stream().map(product -> mapper.map(product, ProductDto.class)).collect(Collectors.toList());
     }
 }

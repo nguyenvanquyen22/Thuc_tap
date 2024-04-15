@@ -61,7 +61,7 @@ const ToolbarAction = (props) => {
             variant='contained'
             startIcon={<Delete />}
             disabled={props.selected.length <= 0}
-            onclick={props.onHandleDelete}
+            onClick={props.onHandleDelete}
             sx={{
               bgcolor: '#ff0000',
               mr: 2,
@@ -90,7 +90,7 @@ const ToolbarAction = (props) => {
                 bgcolor: '#079669',
               },
             }}
-            onclick={props.onHandleDelete}
+            onClick={props.onOpenNew}
           >
             Thêm mới
           </Button>

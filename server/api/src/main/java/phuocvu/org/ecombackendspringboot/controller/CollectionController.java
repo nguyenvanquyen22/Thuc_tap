@@ -11,7 +11,7 @@ import java.util.List;
 @RequestMapping("/api/collection")
 @RestController
 public class CollectionController {
-    private CollectionService collectionService;
+    private final CollectionService collectionService;
 
     public CollectionController(CollectionService collectionService) {
         this.collectionService = collectionService;
@@ -19,35 +19,35 @@ public class CollectionController {
 
     // add collection
     @PostMapping
-    public ResponseEntity<CollectionDto> addCollection(@RequestBody CollectionDto collectionDto){
+    public ResponseEntity<CollectionDto> addCollection(@RequestBody CollectionDto collectionDto) {
         CollectionDto saveCollection = collectionService.addCollection(collectionDto);
         return new ResponseEntity<>(saveCollection, HttpStatus.CREATED);
     }
 
     // update collection
     @PutMapping("/{id}")
-    public ResponseEntity<CollectionDto> updateCollection(@RequestBody CollectionDto collectionDto, @PathVariable(name = "id") Long id){
-        CollectionDto saveColection = collectionService.updateCollection(collectionDto,id);
-        return ResponseEntity.ok(saveColection);
+    public ResponseEntity<CollectionDto> updateCollection(@RequestBody CollectionDto collectionDto, @PathVariable(name = "id") Long id) {
+        CollectionDto updatedCollection = collectionService.updateCollection(collectionDto, id);
+        return ResponseEntity.ok(updatedCollection);
     }
 
     // delete collection
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteColection(@PathVariable (name = "id") Long id){
+    public ResponseEntity<String> deleteCollection(@PathVariable(name = "id") Long id) {
         collectionService.deleteCollection(id);
-        return ResponseEntity.ok(" collection deleted successfully");
+        return ResponseEntity.ok("collection deleted successfully");
     }
 
     // get collection by id
     @GetMapping("/{id}")
-    public ResponseEntity<CollectionDto> getCollectionById(@PathVariable(name = "id") Long id){
+    public ResponseEntity<CollectionDto> getCollectionById(@PathVariable(name = "id") Long id) {
         CollectionDto collectionDto = collectionService.getCollectionById(id);
         return ResponseEntity.ok(collectionDto);
     }
 
     // get all collection
     @GetMapping
-    public List<CollectionDto> getAllCollection(){
+    public List<CollectionDto> getAllCollection() {
         return collectionService.getAllCollection();
     }
 }

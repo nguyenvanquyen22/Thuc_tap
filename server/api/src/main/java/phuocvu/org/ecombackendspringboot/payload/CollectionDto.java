@@ -1,6 +1,5 @@
 package phuocvu.org.ecombackendspringboot.payload;
 
-
 import lombok.*;
 
 @Data

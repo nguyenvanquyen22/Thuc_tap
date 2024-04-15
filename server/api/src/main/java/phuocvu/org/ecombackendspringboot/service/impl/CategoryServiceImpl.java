@@ -3,7 +3,7 @@ package phuocvu.org.ecombackendspringboot.service.impl;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import phuocvu.org.ecombackendspringboot.exception.ResourceNotFoundException;
-import phuocvu.org.ecombackendspringboot.model.Category;
+import phuocvu.org.ecombackendspringboot.entity.Category;
 import phuocvu.org.ecombackendspringboot.payload.CategoryDto;
 import phuocvu.org.ecombackendspringboot.repository.CategoryRepository;
 import phuocvu.org.ecombackendspringboot.service.CategoryService;
@@ -13,8 +13,8 @@ import java.util.stream.Collectors;
 
 @Service
 public class CategoryServiceImpl implements CategoryService {
-    private CategoryRepository categoryRepository;
-    private ModelMapper mapper;
+    private final CategoryRepository categoryRepository;
+    private final ModelMapper mapper;
 
     public CategoryServiceImpl(CategoryRepository categoryRepository, ModelMapper mapper) {
         this.categoryRepository = categoryRepository;
@@ -25,22 +25,22 @@ public class CategoryServiceImpl implements CategoryService {
     public CategoryDto addCategory(CategoryDto categoryDto) {
         Category category = mapper.map(categoryDto, Category.class);
         Category saveCategory = categoryRepository.save(category);
-        return mapper.map(saveCategory,CategoryDto.class);
+        return mapper.map(saveCategory, CategoryDto.class);
     }
 
     @Override
     public CategoryDto updateCategory(CategoryDto categoryDto, Long categoryId) {
         Category existCategory = categoryRepository.findById(categoryId)
-                .orElseThrow(()-> new ResourceNotFoundException("category","id",categoryId));
-        mapper.map(categoryDto,existCategory);
+                .orElseThrow(() -> new ResourceNotFoundException("category", "id", categoryId));
+        mapper.map(categoryDto, existCategory);
         Category saveCategory = categoryRepository.save(existCategory);
-        return mapper.map(saveCategory,CategoryDto.class);
+        return mapper.map(saveCategory, CategoryDto.class);
     }
 
     @Override
     public void deleteCategory(Long categoryId) {
         Category existCategory = categoryRepository.findById(categoryId)
-                .orElseThrow(()-> new ResourceNotFoundException("category","id",categoryId));
+                .orElseThrow(() -> new ResourceNotFoundException("category", "id", categoryId));
         categoryRepository.delete(existCategory);
     }
 
@@ -53,7 +53,7 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public CategoryDto getCategoryByID(Long categoryId) {
         Category category = categoryRepository.findById(categoryId)
-                .orElseThrow(()-> new ResourceNotFoundException("category","id",categoryId));
-        return mapper.map(category,CategoryDto.class);
+                .orElseThrow(() -> new ResourceNotFoundException("category", "id", categoryId));
+        return mapper.map(category, CategoryDto.class);
     }
 }

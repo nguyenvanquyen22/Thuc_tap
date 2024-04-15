@@ -11,13 +11,12 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/product")
 public class ProductController {
-    private ProductService productService;
+    private final ProductService productService;
 
     public ProductController(ProductService productService) {
         this.productService = productService;
     }
 
-    // sẽ bổ sung http
     // get all product
     @GetMapping
     public List<ProductDto> getAllProducts() {
@@ -39,11 +38,12 @@ public class ProductController {
     }
 
     // add a product
-    @PostMapping 
-    public ResponseEntity<ProductDto> addProduct (@RequestBody ProductDto productDto) {
+    @PostMapping
+    public ResponseEntity<ProductDto> addProduct(@RequestBody ProductDto productDto) {
         ProductDto savedProduct = productService.addProduct(productDto);
         return new ResponseEntity<>(savedProduct, HttpStatus.CREATED);
     }
+
     // update product
     @PutMapping("/{id}")
     public ResponseEntity<ProductDto> updateProduct(@RequestBody ProductDto productDto,
@@ -51,6 +51,7 @@ public class ProductController {
         ProductDto savedProduct = productService.updateProduct(productDto, id);
         return ResponseEntity.ok(savedProduct);
     }
+
     // delete product
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteProduct(@PathVariable(name = "id") Long id) {

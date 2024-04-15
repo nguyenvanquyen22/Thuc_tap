@@ -1,9 +1,8 @@
 package phuocvu.org.ecombackendspringboot.payload.cart;
 
-import jakarta.persistence.*;
 import lombok.*;
-import phuocvu.org.ecombackendspringboot.model.Product;
-import phuocvu.org.ecombackendspringboot.model.cart.Cart;
+import phuocvu.org.ecombackendspringboot.entity.Product;
+import phuocvu.org.ecombackendspringboot.entity.Cart;
 
 @Data
 @Getter

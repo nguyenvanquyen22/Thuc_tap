@@ -1,6 +1,5 @@
 package phuocvu.org.ecombackendspringboot.payload.cart;
 
-import jakarta.persistence.Column;
 import lombok.*;
 
 @Data
@@ -11,6 +10,6 @@ import lombok.*;
 @Builder
 public class CartDto {
     private Long id;
-    private String created_at;
-    private String update_at;
+    private String createdAt;
+    private String updatedAt;
 }

@@ -30,7 +30,7 @@ const Breadcrumbs = (props) => {
       aria-label='breadcrumb'
       sx={{
         position: 'relative',
-        zIndex: 111111,
+        zIndex: 10,
         mb: 1,
       }}
     >

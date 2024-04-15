@@ -5,8 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import phuocvu.org.ecombackendspringboot.model.Order.Order;
-import phuocvu.org.ecombackendspringboot.model.cart.Cart;
+import phuocvu.org.ecombackendspringboot.entity.Order;
 import phuocvu.org.ecombackendspringboot.service.OrderService;
 
 import java.util.List;
@@ -14,25 +13,20 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/order")
 public class OrderController {
-    private OrderService orderService;
+    private final OrderService orderService;
 
     public OrderController(OrderService orderService) {
         this.orderService = orderService;
     }
+
     @GetMapping
-    public List<Order> getAlOrder() {
-        return  orderService.getAllOrder();
+    public List<Order> getAllOrder() {
+        return orderService.getAllOrder();
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Order> getOrderById(@PathVariable(name = "id") Long id) {
         Order order = orderService.getOrderById(id);
-        return  ResponseEntity.ok(order);
-    }
-
-    @GetMapping("/customerInfo/{id}")
-    public ResponseEntity<Order> getCartByUserId(@PathVariable(name = "id") Long id) {
-        Order order = orderService.getOrderByCustomerInfoId(id);
-        return  ResponseEntity.ok(order);
+        return ResponseEntity.ok(order);
     }
 }

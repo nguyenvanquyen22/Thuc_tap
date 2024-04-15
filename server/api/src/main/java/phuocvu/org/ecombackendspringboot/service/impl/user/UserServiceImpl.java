@@ -1,8 +1,9 @@
 package phuocvu.org.ecombackendspringboot.service.impl.user;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import phuocvu.org.ecombackendspringboot.exception.ResourceNotFoundException;
-import phuocvu.org.ecombackendspringboot.model.user.User;
+import phuocvu.org.ecombackendspringboot.entity.User;
 import phuocvu.org.ecombackendspringboot.payload.user.UserDto;
 import phuocvu.org.ecombackendspringboot.repository.user.UserRepository;
 import phuocvu.org.ecombackendspringboot.service.UserService;
@@ -11,9 +12,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class UserServiceImpl implements UserService  {
-    private UserRepository userRepository;
-    private ModelMapper mapper;
+public class UserServiceImpl implements UserService {
+    private final UserRepository userRepository;
+    private final ModelMapper mapper;
 
     public UserServiceImpl(UserRepository userRepository, ModelMapper mapper) {
         this.userRepository = userRepository;
@@ -36,24 +37,24 @@ public class UserServiceImpl implements UserService  {
     @Override
     public UserDto getUserById(Long userId) {
         User user = userRepository.findById(userId)
-                .orElseThrow(()-> new ResourceNotFoundException("user","id",userId));
-        return mapper.map(user,UserDto.class);
+                .orElseThrow(() -> new ResourceNotFoundException("user", "id", userId));
+        return mapper.map(user, UserDto.class);
     }
 
     @Override
     public UserDto updateUser(UserDto userDto, long userId) {
         User existUser = userRepository.findById(userId)
-                .orElseThrow(()-> new ResourceNotFoundException("user","id",userId));
-        mapper.map(userDto,existUser);
+                .orElseThrow(() -> new ResourceNotFoundException("user", "id", userId));
+        mapper.map(userDto, existUser);
         User updateUser = userRepository.save(existUser);
 
-        return mapper.map(updateUser,UserDto.class);
+        return mapper.map(updateUser, UserDto.class);
     }
 
     @Override
     public void deleteUserById(long userId) {
         User user = userRepository.findById(userId)
-                .orElseThrow(()-> new ResourceNotFoundException("user","id",userId));
+                .orElseThrow(() -> new ResourceNotFoundException("user", "id", userId));
         userRepository.delete(user);
     }
 

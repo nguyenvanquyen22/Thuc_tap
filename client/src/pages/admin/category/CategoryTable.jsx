@@ -1,6 +1,6 @@
 import DataTable from '../../../components/table';
 
-const CategoryTable = () => {
+const CategoryTable = (props) => {
   const headCells = [
     {
       id: 'name',
@@ -61,7 +61,9 @@ const CategoryTable = () => {
     createData(13, 'Oreo', 437, 18.0, 63, 4.0),
   ];
 
-  return <DataTable rows={rows} headCells={headCells} />;
+  return (
+    <DataTable rows={rows} headCells={headCells} onOpenNew={props.onOpenNew} />
+  );
 };
 
 export default CategoryTable;

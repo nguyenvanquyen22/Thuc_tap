@@ -44,7 +44,7 @@ const Header = () => {
               WebkitTextFillColor: 'transparent',
             }}
           >
-            ecommerce
+            Dev4Fun
           </Typography>
 
           {/* Menu */}
